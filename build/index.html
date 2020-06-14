@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/css/alles.css"/>
+        <script id="vert" type="x-shader/x-vertex">
+            attribute vec2 aVertices;
+            attribute vec2 aUVs;
+            uniform mat4 uProjection;
+            uniform vec2 uPos;
+            uniform vec2 uSize;
+            uniform float uTime;
+            varying vec2 vUVs;
+
+            void main() {
+                gl_Position = uProjection * vec4(uPos + aVertices * uSize, 0.0, 1.0);
+                vUVs = aUVs;
+            }
+        </script>
+        <script id="frag" type="x-shader/x-fragment">
+            precision highp float;
+
+            uniform sampler2D uSampler;
+            uniform float uTime;
+            varying vec2 vUVs;
+
+            vec2 wave(vec2 uvs, float time, float size) {
+                float t = (time / 2000.0);
+                vec2 fac;
+                // fac.x = cos(vUVs.y * t * 14.0) * -sin(vUVs.x * 14.0 * t) * 0.0090;
+                // fac.y = -sin(vUVs.x * t * 10.5) * cos(vUVs.y * 19.6 * t) * 0.0090;
+                fac.x = sin(vUVs.y + t) * cos(vUVs.x * 14.0 + t) * size;
+                fac.y = sin(vUVs.x + t) * cos(vUVs.y * 7.6 + t) * size;
+                return fac;
+            }
+
+            void main() {
+                vec3 offset = vec3(0.0, 0.0, 0.0);
+
+                gl_FragColor = vec4(
+                    texture2D(uSampler, vUVs - offset.r + wave(vUVs, uTime, 0.0050)).r,
+                    texture2D(uSampler, vUVs - offset.g + wave(vUVs, uTime, 0.0080)).g,
+                    texture2D(uSampler, vUVs - offset.b + wave(vUVs, uTime, 0.0160)).b,
+                    1.0
+                );
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="back"></canvas>
+        <div class="alles"></div>
+        <script src="assets/js/alles.min.js"></script>
+    </body>
+</html>
