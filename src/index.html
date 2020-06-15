@@ -24,30 +24,106 @@
             varying vec2 vUVs;
 
             vec2 wave(vec2 uvs, float time, float size) {
-                float t = (time / 2000.0);
+                float t = (time / 3000.0);
                 vec2 fac;
-                // fac.x = cos(vUVs.y * t * 14.0) * -sin(vUVs.x * 14.0 * t) * 0.0090;
-                // fac.y = -sin(vUVs.x * t * 10.5) * cos(vUVs.y * 19.6 * t) * 0.0090;
-                fac.x = sin(vUVs.y + t) * cos(vUVs.x * 14.0 + t) * size;
-                fac.y = sin(vUVs.x + t) * cos(vUVs.y * 7.6 + t) * size;
+                // fac.x = sin(vUVs.y + t) * cos(vUVs.x * 14.0 + t) * size;
+                // fac.y = sin(vUVs.x + t) * cos(vUVs.y * 7.6 + t) * size;
+                fac.x = sin(vUVs.y + t) * cos(vUVs.x * 21.0 + t) * size;
+                fac.y = sin(vUVs.x + t) * cos(vUVs.y * 62.6 + t) * size;
                 return fac;
             }
 
             void main() {
-                vec3 offset = vec3(0.0, 0.0, 0.0);
-
                 gl_FragColor = vec4(
-                    texture2D(uSampler, vUVs - offset.r + wave(vUVs, uTime, 0.0050)).r,
-                    texture2D(uSampler, vUVs - offset.g + wave(vUVs, uTime, 0.0080)).g,
-                    texture2D(uSampler, vUVs - offset.b + wave(vUVs, uTime, 0.0160)).b,
+                    texture2D(uSampler, vUVs - 0.0003                             ).r,
+                    texture2D(uSampler, vUVs - 0.00045 + wave(vUVs, uTime, 0.0051)).g,
+                    texture2D(uSampler, vUVs -           wave(vUVs, uTime, 0.0113)).b,
                     1.0
                 );
             }
         </script>
+
+
+        <!--
+             Rectangle shader
+        --->
+        <script id="rectVertex" type="x-shader/x-vertex">
+            attribute vec2 aVertices;
+            uniform vec4 uPos;
+            uniform mat4 uProjection;
+            void main() {
+                gl_Position = uProjection * vec4(uPos.zw * aVertices + uPos.xy, 0.0, 1.0);
+            }
+        </script>
+        <script id="rectFragment" type="x-shader/x-fragment">
+            precision mediump float;
+            uniform vec4 uColor;
+            void main() {
+                gl_FragColor = uColor;
+            }
+        </script>
+
+
     </head>
     <body>
         <canvas id="back"></canvas>
-        <div class="alles"></div>
+        <div class="page">
+
+            <ul id="grid" class="clear">
+                <li><div class="hexagon"></div></li>
+
+                <li id="maxim">
+                    <div class="hexagon">
+                        <img src="assets/img/maxim01.jpg" draggable="false" alt="Maxim"/>
+                    </div>
+                </li>
+                <li id="over">
+                    <div class="hexagon">
+                        <a>Over Mij</a>
+                    </div>
+                </li>
+
+                <li id="projecten">
+                    <div class="hexagon">
+                        <a>Projecten</a>
+                    </div>
+                </li>
+
+                <li id="contact">
+                    <div class="hexagon">
+                        <a>Contact</a>
+                    </div>
+                </li>
+            </ul>
+
+
+            <svg width="0" height="0">
+              <filter id="psy">
+                <feColorMatrix type="matrix"
+                  result="red_"
+                  values="4 0 0 0 0
+                          0 0 0 0 0
+                          0 0 0 0 0
+                          0 0 0 1 0"/>
+                <feOffset in="red_" dx="2" dy="0" result="red"/>
+                <feColorMatrix type="matrix"
+                  in="SourceGraphic"
+                  result="blue_"
+                  values="0 0 0 0 0
+                          0 3 0 0 0
+                          0 0 10 0 0
+                          0 0 0 1 0"/>
+                <feOffset in="blue_" dx="-1" dy="0" result="blue"/>
+                <feBlend mode="screen" in="red" in2="blue"/>
+
+              </filter>
+            </svg>
+
+
+
+
+
+        </div>
         <script src="assets/js/alles.min.js"></script>
     </body>
 </html>

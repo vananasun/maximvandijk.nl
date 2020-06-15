@@ -1,0 +1,117 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.util.vector.Vector3f;
+
+import Design.Models;
+import Design.Textures;
+
+public class Game_logic 
+{
+	private boolean allowedFly = false;
+	
+	public Player player;
+	
+	List<Entity> possibleCollision = new ArrayList<Entity>();
+	
+	Timer keyPressTimer = new Timer();
+	
+	List<Vector3f> focal_vertices = new ArrayList<Vector3f>();
+	//Get Vertices for Focal Entity
+	
+
+	List<Vector3f> entity_vertices = new ArrayList<Vector3f>();
+	//Get Vertices for Focal Entity
+	//entity_vertices.add(vertex);
+	
+	public Game_logic()
+	{
+		RawModel playerOBJ = LoaderOBJ.loadObjModel(Models.Model_Player, Main.getRenders().loader);
+
+        TexturedModel PlayerModel = new TexturedModel(playerOBJ, new ModelTexture(Main.getRenders().loader.loadTexture(Textures.Texture_ColorCube)));
+        
+        this.player = new Player(PlayerModel, new Vector3f(100, 0, -50), 0, 180, 0, 0.04f);
+        
+        for(Vector3f vertice : player.vertices)
+		{
+        	focal_vertices.add(vertice);
+		}
+        
+	}
+	public void init_getEntityVertices(Entity entity)
+	{
+		for(Vector3f vertice : entity.vertices)
+        {
+        	entity_vertices.add(vertice);
+        }
+	}
+	public void prepareGame()
+	{
+		
+	}
+	public void logicGameLoop()
+	{
+		//System.out.println(allowedFly);
+		if(Entity.getDistance(player.getPosition(), Main.getRenders().dragon.getPosition()) < 3)
+		{
+			//System.out.println("Collision" + "id : " + (Math.round(Math.random() * 100)));
+			possibleCollision.add(Main.getRenders().dragon);
+		}
+		for(int i = 0; i < entity_vertices.size() - 1; i++) 
+		{
+
+		    if(focal_vertices.contains(entity_vertices.get(i))) 
+		    {
+
+		        System.out.println("Collision !");
+
+		    }
+		}
+	}
+	public void input()
+	{
+		player.move(Main.getRenders().getTerrain());
+		
+		input_cam();
+		input_keys();
+	}
+	public void input_cam()
+    {
+    	Main.getRenders().getCamera().move();
+    }
+	public void input_keys()
+	{
+		if(Keyboard.isKeyDown(Keyboard.KEY_NUMPAD7))
+		{
+			if(allowedFly)
+			{
+				keyPressTimer.schedule(new TimerTask() 
+				{
+					@Override
+					public void run()
+					{
+						allowedFly = false;
+					}
+				}, 300); //en milisecondes
+			}
+			else
+			{
+				keyPressTimer.schedule(new TimerTask() 
+				{
+					@Override
+					public void run()
+					{
+						allowedFly = true;
+					}
+				}, 300); //en milisecondes
+			}
+		}
+	}
+	public boolean isAllowedFly()
+	{
+		return allowedFly;
+	}
+}

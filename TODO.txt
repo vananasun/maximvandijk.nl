@@ -1,0 +1,2 @@
+M   Nederlands & Engels
+S   Optimaliseer shader met texture ipv (3 * 4 * w * h) sin/cos calls.

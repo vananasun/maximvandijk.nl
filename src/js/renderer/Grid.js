@@ -21,6 +21,42 @@ let ShaderProgram = require("renderer/ShaderProgram.js");
 //     return uvs;
 // }
 
+/**
+ * For a rectangle inside a screen, get the scale factor that permits the
+ * rectangle to be scaled without stretching or squashing.
+ *
+ * @param {object} screen { {number} w, {number} h }
+ * @param {object} img    { {number} w, {number} h }
+ *
+ * @return {object} rect { {number} x, {number} y, {number} w, {number} h }
+ */
+function fitRectInScreen(screen, img) {
+
+    let imgRatio = img.h / img.w;
+    let screenRatio = screen.h / screen.w;
+
+    let final = {};
+    if (screenRatio > imgRatio) {
+        final.h = screen.h;
+        final.w = Math.floor(img.w * (final.h / img.h));
+    } else {
+        final.w = screen.w;
+        final.h = Math.floor(img.h * (final.w / img.w));
+    }
+
+    return {
+        x: (screen.w - final.w) / 2,
+        y: (screen.h - final.h) / 2,
+        w: final.w,
+        h: final.h
+    };
+
+}
+
+
+
+
+
 
 function Grid(shader) {
     // generate buffers
@@ -41,7 +77,6 @@ function Grid(shader) {
     this.locPos        = shader.locateUniform("uPos");
     this.locSize       = shader.locateUniform("uSize");
     this.locTime       = shader.locateUniform("uTime");
-    // this.locResolution = shader.locateUniform("uResolution");
     if (oldShader) oldShader.use();
     this.shader = shader;
 
@@ -86,7 +121,7 @@ Grid.prototype.bindTexture = function(texture) {
 }
 
 Grid.prototype.render = function(time) {
-    if (!this.texture.loaded) return;
+    if (!this.texture.loaded) return false;
     let oldShader = this.shader.use();
 
     // bind vertices
@@ -100,15 +135,19 @@ Grid.prototype.render = function(time) {
     gl.vertexAttribPointer(this.locUVs, 2, gl.FLOAT, false, 0, 0);
 
     // bind other uniforms
-    let drawHeight = gl.drawingBufferWidth / this.texture.getAspect();
+    let rect = fitRectInScreen(
+        { w: gl.drawingBufferWidth, h: gl.drawingBufferHeight },
+        { w: this.texture.width   , h: this.texture.height
+    });
     this.shader.bind1f(this.locTime, time);
-    this.shader.bind2f(this.locPos, 0, 0);
-    this.shader.bind2f(this.locSize, gl.drawingBufferWidth, drawHeight);
+    this.shader.bind2f(this.locPos , rect.x, rect.y);
+    this.shader.bind2f(this.locSize, rect.w, rect.h);
 
     // bind texture and draw
     this.shader.bindSampler(this.locSampler, this.texture.id);
     gl.drawArrays(gl.TRIANGLES, 0, this.vertexCount);
-    if (oldShader) oldShader.use();
+    // if (oldShader) oldShader.use();
+    return true;
 }
 
 

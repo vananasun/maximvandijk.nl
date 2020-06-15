@@ -4,12 +4,14 @@ function WebGLCanvas(id) {
     let self = this;
     window.addEventListener("resize", function(){ self.onWindowResize() }, false);
 
-    gl = this.canvas.getContext('webgl', {antialias: true});
+    gl = this.canvas.getContext('webgl', {antialias: false});
     if (!gl) return false;
 
     // Settings
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.clearColor(0,0,0,1);
+    this.clearCanvas();
     return true;
 };
 
