@@ -15,6 +15,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.1.0",
     "gulp-watch": "^5.0.1",
+    "html-gl": "^0.3.2",
     "node-sass": "^4.14.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"

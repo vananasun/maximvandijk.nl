@@ -1,48 +1,18 @@
+let Fallback = require('Fallback.js');
+let g_fps = require('FPS.js');
+let Modal = require('Modal.js');
+
 let Grid = require('renderer/Grid.js');
 let Texture = require('renderer/Texture.js');
-let Fallback = require('renderer/Fallback.js');
 let ShaderProgram = require('renderer/ShaderProgram.js');
 let RectangleRenderer = require('renderer/RectangleRenderer.js');
 let WebGLCanvas = require('renderer/WebGLCanvas.js');
+let LazyLoader = require('renderer/LazyLoader.js');
+let FilterAnimation = require('renderer/FilterAnimation.js');
 
 
 
-const fps = {
-    sampleSize : 60,
-    value : 0,
-    _sample_ : [],
-    _index_ : 0,
-    _lastTick_: false,
-    tick : function(){
-        // if is first tick, just set tick timestamp and return
-        if( !this._lastTick_ ){
-            this._lastTick_ = performance.now();
-            return 0;
-        }
-        // calculate necessary values to obtain current tick FPS
-        let now = performance.now();
-        let delta = (now - this._lastTick_)/1000;
-        let fps = 1/delta;
-        // add to fps samples, current tick fps value
-        this._sample_[ this._index_ ] = Math.round(fps);
-
-        // iterate samples to obtain the average
-        let average = 0;
-        for(i=0; i<this._sample_.length; i++) average += this._sample_[ i ];
-
-        average = Math.round( average / this._sample_.length);
-
-        // set new FPS
-        this.value = average;
-        // store current timestamp
-        this._lastTick_ = now;
-        // increase sample index counter, and reset it
-        // to 0 if exceded maximum sampleSize limit
-        this._index_++;
-        if( this._index_ === this.sampleSize) this._index_ = 0;
-        return this.value;
-    }
-}
+const FADE_SPEED = 1 / 23;
 
 
 
@@ -51,11 +21,13 @@ function render(t) {
     g_canvas.clearCanvas();
 
     shader.bindMat4(shader.locateUniform("uProjection"), g_canvas.projectionMatrix);
-    
-    if (grid.render(t) && fadeInOpacity > 0.0) {
-        g_rectangleRenderer.draw(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight, {r:0,g:0,b:0,a:fadeInOpacity});
-        fadeInOpacity -= fadeSpeed;
+
+    if (grid.render(t) && (g_fadeOpacity -= FADE_SPEED) > 0.0) {
+        let fadeInColor = {r: 34 / 255, g: 28 / 255, b: 56 / 255, a: g_fadeOpacity};
+        g_rectangleRenderer.draw(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight, fadeInColor);
     }
+
+    g_filterAnimation.update(t);
 
     window.requestAnimationFrame(render);
 
@@ -67,34 +39,43 @@ function init() {
     if (!g_canvas)
         Fallback.NoWebGL();
     g_rectangleRenderer = new RectangleRenderer();
-    fadeSpeed = 1 / 60;
-    fadeInOpacity = 1.0 - fadeSpeed;
+    g_fadeOpacity = 1.0 - FADE_SPEED;
 
-    // back = new Texture('assets/img/back06_q30_1920x1280.webp');
-    // back = new Texture('assets/img/back06_q30_3120x2080.webp');
-    // back = new Texture('assets/img/back06_q30_6240x4160.webp');
-    // back = new Texture('assets/img/back07_q30_5760x3840.webp');
-    let backgrounds = [
-        'assets/img/back01.jpg',
-        'assets/img/back02.jpg',
-        'assets/img/back03.jpg',
-        'assets/img/back04.jpg',
-        'assets/img/back05.jpg',
-        'assets/img/back06_q30_3120x2080.web',
-        'assets/img/back07_q30_5760x3840.webp',
+
+    // Lazily-load background texture
+    back = new Texture();
+    let backs = [
+        'back01',
+        'back02',
+        'back03',
+        'back04',
+        'back05',
+        'back06',
+        'back07'
     ];
-    let selectedUrl = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-    back = new Texture(selectedUrl);
+    let name = 'assets/img/lazy/' + backs[Math.floor(Math.random() * backs.length)];
+    g_lazyLoader = new LazyLoader();
+    g_lazyLoader.loadImage(name, function(img) {
+        back.uploadImage(img);
+    });
 
+    // Setup background shader.
     shader = new ShaderProgram();
     shader.addStage(document.getElementById('vert').innerHTML, gl.VERTEX_SHADER);
     shader.addStage(document.getElementById('frag').innerHTML, gl.FRAGMENT_SHADER);
     shader.link();
 
+    // Create the moving background object.
     grid = new Grid(shader);
     grid.bindTexture(back);
 
-    render();
+    // Initialize SVG filter animation.
+    g_filterAnimation = new FilterAnimation();
+
+    // Make modal object
+    g_modal = new Modal();
+
+    render(0.0);
 }
 
 init();

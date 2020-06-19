@@ -9,10 +9,10 @@
 #grid {
     -webkit-filter: url(#psy);
     position: relative;
-    width: 45%;
+    width: 65%;
     margin: 0 auto;
     padding: 0; /* Clears unordered list default of 40px */
-
+    transform: translateY(-5%); // Stupid fix
 
     li {
         list-style-type: none;
@@ -29,7 +29,7 @@
         visibility: hidden;
 
         .hexagon {
-            transition: all 0.5s;
+            transition: all 0.4s ease-out;
             position: absolute;
             top: 0;
             left: 0;
@@ -48,22 +48,32 @@
                 background: $hexagon-color-hover;
 
                 a {
-                    transition: all 0.25s;
+                    font-size: $hexagon-font-size * 1.2;
+                    transition: all 0.25s ease-out;
                     color: #000;
                 }
             }
             &:active {
+                transition: all 68ms;
+                background: $hexagon-color-active !important;
                 cursor: grabbing;
+                a {
+                    font-size: $hexagon-font-size * 0.95;
+
+                }
             }
 
 
             display:flex;justify-content:center;align-items:center;
             a {
-                transition: all 0.4s;
+                transition: all 0.3s ease-out;
                 color: $hexagon-color-hover;
-                font-size: 2.7vw;
+                font-size: $hexagon-font-size;
                 font-weight: 600;
                 text-transform: lowercase;
+
+                -webkit-text-stroke: 0.17vw white;
+                -webkit-text-fill-color: black;
 
             }
         }
@@ -98,16 +108,22 @@
 
         &#maxim {
             .hexagon{
-                &:hover {
-                    background: initial;
-                }
                 img {
                     width: auto;
                     height: 100%;
-                    transition: all 0.5s;
+                    transition: all 0.4s ease-out;
                     opacity: 0;
                     &:hover {
                         opacity: 1;
+                    }
+                }
+                &:hover {
+                    background: initial;
+                }
+                &:active {
+                    img {
+                        height: 107%;
+                        transition: all 0.15s ease-out;
                     }
                 }
             }

@@ -1,12 +1,7 @@
 $sqrt-3: 1.7320508075688772935274463415059;
 
-// $hexagon-gutter: 4vw;
-// $hexagon-height: 25vh;
-
-$hexagon-opacity: 0.65;
-// $hexagon-color-back: rgba(25/1.5,48/1.5,5/1.5,0.417);
-$hexagon-color-back: rgba(5/1.5,25/1.5,48/1.5,0.417);
+$hexagon-opacity: 0.35;
+$hexagon-color-back: rgba(5,5,5,$hexagon-opacity);
 $hexagon-color-hover: rgba(255,255,255,$hexagon-opacity);
-
-
-$hexagon-width: 40%;
+$hexagon-color-active: rgba(54,54,54,$hexagon-opacity);
+$hexagon-font-size: 2.7vw;//3.4vw

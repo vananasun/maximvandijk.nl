@@ -139,7 +139,7 @@ Grid.prototype.render = function(time) {
         { w: gl.drawingBufferWidth, h: gl.drawingBufferHeight },
         { w: this.texture.width   , h: this.texture.height
     });
-    this.shader.bind1f(this.locTime, time);
+    this.shader.bind1f(this.locTime, time / 3000.0);
     this.shader.bind2f(this.locPos , rect.x, rect.y);
     this.shader.bind2f(this.locSize, rect.w, rect.h);
 

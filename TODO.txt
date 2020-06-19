@@ -1,2 +1,7 @@
 M   Nederlands & Engels
-S   Optimaliseer shader met texture ipv (3 * 4 * w * h) sin/cos calls.
+M   JPEG fallback
+
+S   Rewrite SVG filters in GLSL
+
+C   Optimaliseer shader met texture ipv (3 * 4 * w * h) sin/cos calls.
+C   Automate lazy loader
