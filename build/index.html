@@ -95,67 +95,159 @@
 
 
     </head>
-    <body>
+    <body class="nl">
         <canvas id="back"></canvas>
-        <htmlgl>
         <div class="page">
 
-            <ul id="grid" class="clear">
-                <li><div class="hexagon"></div></li>
+            <div class="col">
+                <ul id="grid" class="clear">
+                    <li><div class="hexagon"></div></li>
 
-                <li id="maxim">
-                    <div class="hexagon">
-                        <img src="assets/img/maxim01.jpg" draggable="false" alt="Maxim"/>
+                    <li id="maxim">
+                        <div class="hexagon">
+                            <img src="assets/img/maxim01.jpg" draggable="false" alt="Maxim"/>
+                        </div>
+                    </li>
+                    <li id="over" onclick="g_modal.changeTo(this)">
+                        <div class="hexagon">
+                            <a>Over Mij</a>
+                        </div>
+                    </li>
+
+                    <li id="projecten" onclick="g_modal.changeTo(this)">
+                        <div class="hexagon">
+                            <a>Projecten</a>
+                        </div>
+                    </li>
+
+                    <li id="contact" onclick="g_modal.changeTo(this)">
+                        <div class="hexagon">
+                            <a>Contact</a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col">
+
+
+                <div class="modal">
+                    <div id="content-over" class="active">
+                        <span class="nl">
+                            <b>$groet,</b> ik ben Maxim,<br>Ik ben $leeftijd jaar èèènn...<br>
+                            <br>
+                            ...Ik heb een passie voor het schrijven van structureel elegante software.<br>
+                            <br>
+                            Ook houd ik van muziek creëren <a href="synth/">en daarvoor schrijf ik ook software</a>.<br>
+                            <br>
+                            Verder hoop ik dat je $dia goed gaat. 😊
+                        </span>
+                        <span class="en">
+                            <b>$groet,</b> I am Maxim,<br>I am $leeftijd years old, aandd...<br>
+                            <br>
+                            ...I have a passion for writing structurally elegant software.
+                            <br>
+                            I also love creating music <a href="synth/">and for that I also write software</a>.<br>
+                            <br>
+                            Verder hoop ik dat je $dia goed gaat. 😊
+                        </span>
                     </div>
-                </li>
-                <li id="over" onclick="g_modal.change()">
-                    <div class="hexagon">
-                        <a>Over Mij</a>
+                    <div id="content-projecten">
+                        <span class="nl">
+                            Dit zijn een aantal van mijn projecten:<br>
+                            <br>
+                            <a href="synth/">WebGL synthesizer</a><br>
+                            <a href="airrpg/">AirRPG game</a><br>
+                            <a href="bouteagle.ace-games.com/">BoutEagle game</a><br>
+                            <br>
+                            <a href="https://github.com/vananasun">Mijn Github</a>
+                        </span>
+                        <span class="en">
+                            These are a few of my projects:<br>
+                            <br>
+                            <a href="synth/">WebGL synthesizer</a><br>
+                            <a href="airrpg/">AirRPG game</a><br>
+                            <a href="bouteagle.ace-games.com/">BoutEagle game</a><br>
+                            <br>
+                            <a href="https://github.com/vananasun">My Github</a>
+                        </span>
                     </div>
-                </li>
-
-                <li id="projecten" onclick="g_modal.change()">
-                    <div class="hexagon">
-                        <a>Projecten</a>
+                    <div id="content-contact">
+                        <span class="nl">
+                            Tel: <a href="tel:+31-6-51053684">+31 6 51053684</a><br>
+                            Email: <a href="mailto:mvandijk303@gmail.com">mvandijk303@gmail.com</a>
+                        </span>
+                        <span class="en">
+                            Phone: <a href="tel:+31-6-51053684">+31 6 51053684</a><br>
+                            Email: <a href="mailto:mvandijk303@gmail.com">mvandijk303@gmail.com</a>
+                        </span>
                     </div>
-                </li>
-
-                <li id="contact" onclick="g_modal.change()">
-                    <div class="hexagon">
-                        <a>Contact</a>
-                    </div>
-                </li>
-            </ul>
+                </div>
 
 
-            <svg width="0" height="0">
-              <filter id="psy">
-                <feColorMatrix type="matrix"
-                  result="red_"
-                  values="4 0 0 0 0
-                          0 0 0 0 0
-                          0 0 0 0 0
-                          0 0 0 1 0"/>
-                <feOffset in="red_" dx="1" dy="1" result="red"/>
-                <feColorMatrix type="matrix"
-                  in="SourceGraphic"
-                  result="blue_"
-                  values="0 0 0 0 0
-                          0 3 0 0 0
-                          0 0 10 0 0
-                          0 0 0 1 0"/>
-                <feOffset in="blue_" dx="-2" dy="0" result="blue"/>
-                <feBlend mode="screen" in="red" in2="blue"/>
-
-              </filter>
-            </svg>
-
-
-
+            </div>
 
 
         </div>
-        </htmlgl>
+
+
+
+        <div class="localepicker">
+            <div><img id="flag-nl" src="assets/img/flag_nl_btn.webp" onclick="g_locale.change('nl')"/></div>
+            <div><img id="flag-en" src="assets/img/flag_en_btn.webp" onclick="g_locale.change('en')"/></div>
+        </div>
+
+
+
+        <svg width="0" height="0">
+          <filter id="psy">
+            <feColorMatrix type="matrix"
+              result="red_"
+              values="4 0 0 0 0
+                      0 0 0 0 0
+                      0 0 0 0 0
+                      0 0 0 1 0"/>
+            <feOffset in="red_" dx="1" dy="1" result="red"/>
+            <feColorMatrix type="matrix"
+              in="SourceGraphic"
+              result="blue_"
+              values="0 0 0 0 0
+                      0 3 0 0 0
+                      0 0 10 0 0
+                      0 0 0 1 0"/>
+            <feOffset in="blue_" dx="-2" dy="0" result="blue"/>
+            <feBlend mode="screen" in="red" in2="blue"/>
+
+          </filter>
+        </svg>
+
         <script src="assets/js/alles.min.js"></script>
     </body>
 </html>
+
+
+<p>
+    <b id="goede">Goeiedag,</b> <br/>
+    <b><i>ik ben Maxim</b>.</i>
+    <br/><br/>
+    Ik heb een passie voor het schrijven van software, muziek maken, filosoferen en lekker eten.
+    <br/><br/>
+    <i>Verder doe ik aan kickboxen en ben ik af en toe DJ.</i>
+</p>
+</div>
+
+<div class="section" id="projecten">
+
+</div>
+
+<div class="section" id="vaardigheden">
+
+</div>
+
+<div class="section" id="contact">
+<p>
+    Tel: <a href="tel:+31-06-51053684">+31 06 51053684</a>
+    <br>
+    <i>Email: <a href="mailto:mvandijk303@gmail.com">mvandijk303@gmail.com</a></i>
+</p>
+</div>

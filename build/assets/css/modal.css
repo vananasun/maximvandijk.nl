@@ -1,0 +1,15 @@
+.modal {
+  -webkit-filter: url(#psy);
+  margin: auto;
+  display: block;
+  width: 80%;
+  height: 80vh;
+  background: rgba(5, 5, 5, 0.35);
+  border-radius: 16px; }
+  .modal > div {
+    padding: 1em 2em; }
+    .modal > div:not(.active) {
+      display: none; }
+    .modal > div span {
+      color: #fff;
+      font-size: 1.8em; }

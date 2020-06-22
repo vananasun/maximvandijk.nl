@@ -4,13 +4,13 @@
   clear: both; }
 
 #grid {
+  -moz-user-select: none;
   -webkit-filter: url(#psy);
   position: relative;
-  width: 65%;
-  margin: 0 auto;
+  width: 100%;
+  margin: auto;
   padding: 0;
-  /* Clears unordered list default of 40px */
-  transform: translateY(-5%); }
+  /* Clears unordered list default of 40px */ }
   #grid li {
     list-style-type: none;
     position: relative;
@@ -45,19 +45,19 @@
         cursor: pointer;
         background: rgba(255, 255, 255, 0.35); }
         #grid li .hexagon:hover a {
-          font-size: 3.24vw;
+          font-size: 2.52vw;
           transition: all 0.25s ease-out;
           color: #000; }
       #grid li .hexagon:active {
         transition: all 68ms;
         background: rgba(54, 54, 54, 0.35) !important;
-        cursor: grabbing; }
+        cursor: grab; }
         #grid li .hexagon:active a {
-          font-size: 2.565vw; }
+          font-size: 1.995vw; }
       #grid li .hexagon a {
         transition: all 0.3s ease-out;
         color: rgba(255, 255, 255, 0.35);
-        font-size: 2.7vw;
+        font-size: 2.1vw;
         font-weight: 600;
         text-transform: lowercase;
         -webkit-text-stroke: 0.17vw white;
@@ -92,14 +92,56 @@
   #grid li * {
     visibility: visible; }
 
+.modal {
+  -webkit-filter: url(#psy);
+  margin: auto;
+  display: block;
+  width: 80%;
+  height: 80vh;
+  background: rgba(5, 5, 5, 0.35);
+  border-radius: 16px; }
+  .modal > div {
+    padding: 1em 2em; }
+    .modal > div:not(.active) {
+      display: none; }
+    .modal > div span {
+      color: #fff;
+      font-size: 1.8em; }
+
+body:not(.en) .en {
+  display: none; }
+
+body:not(.nl) .nl {
+  display: none; }
+
+.localepicker {
+  display: inline-block;
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  right: 0; }
+  .localepicker div {
+    transition: all 0.3s;
+    padding: 0.8em;
+    float: left; }
+    .localepicker div img {
+      transition: all 0.25s;
+      width: 58px;
+      height: auto; }
+      .localepicker div img:hover {
+        cursor: pointer;
+        width: 76px; }
+      .localepicker div img:active {
+        cursor: grab;
+        width: 68px; }
+
 html, body {
   width: 100%;
   height: 100%;
   margin: 0;
-  /* No scrolling, no selections */
+  /* No scrolling */
   overflow: hidden;
-  user-select: none;
-  -moz-user-select: none; }
+  user-select: none; }
 
 body {
   font-family: 'Eagle Lake', cursive; }
@@ -117,5 +159,14 @@ canvas#back {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center; }
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .page .col {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1; }
+
+a {
+  color: #f4d;
+  font-style: italic; }

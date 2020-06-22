@@ -4,13 +4,13 @@
   clear: both; }
 
 #grid {
+  -moz-user-select: none;
   -webkit-filter: url(#psy);
   position: relative;
-  width: 65%;
-  margin: 0 auto;
+  width: 100%;
+  margin: auto;
   padding: 0;
-  /* Clears unordered list default of 40px */
-  transform: translateY(-5%); }
+  /* Clears unordered list default of 40px */ }
   #grid li {
     list-style-type: none;
     position: relative;
@@ -45,19 +45,19 @@
         cursor: pointer;
         background: rgba(255, 255, 255, 0.35); }
         #grid li .hexagon:hover a {
-          font-size: 3.24vw;
+          font-size: 2.52vw;
           transition: all 0.25s ease-out;
           color: #000; }
       #grid li .hexagon:active {
         transition: all 68ms;
         background: rgba(54, 54, 54, 0.35) !important;
-        cursor: grabbing; }
+        cursor: grab; }
         #grid li .hexagon:active a {
-          font-size: 2.565vw; }
+          font-size: 1.995vw; }
       #grid li .hexagon a {
         transition: all 0.3s ease-out;
         color: rgba(255, 255, 255, 0.35);
-        font-size: 2.7vw;
+        font-size: 2.1vw;
         font-weight: 600;
         text-transform: lowercase;
         -webkit-text-stroke: 0.17vw white;

@@ -1,6 +1,7 @@
 let Fallback = require('Fallback.js');
 let g_fps = require('FPS.js');
 let Modal = require('Modal.js');
+let LocaleManager = require('LocaleManager.js');
 
 let Grid = require('renderer/Grid.js');
 let Texture = require('renderer/Texture.js');
@@ -72,8 +73,9 @@ function init() {
     // Initialize SVG filter animation.
     g_filterAnimation = new FilterAnimation();
 
-    // Make modal object
+    // Make modal and locale objects
     g_modal = new Modal();
+    g_locale = new LocaleManager();
 
     render(0.0);
 }

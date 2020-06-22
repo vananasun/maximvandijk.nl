@@ -1,0 +1,26 @@
+body:not(.en) .en {
+  display: none; }
+
+body:not(.nl) .nl {
+  display: none; }
+
+.localepicker {
+  display: inline-block;
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  right: 0; }
+  .localepicker div {
+    transition: all 0.3s;
+    padding: 0.8em;
+    float: left; }
+    .localepicker div img {
+      transition: all 0.25s;
+      width: 58px;
+      height: auto; }
+      .localepicker div img:hover {
+        cursor: pointer;
+        width: 76px; }
+      .localepicker div img:active {
+        cursor: grab;
+        width: 68px; }

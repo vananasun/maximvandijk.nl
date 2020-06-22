@@ -1,0 +1,27 @@
+@import "constants";
+
+
+
+.modal {
+
+    -webkit-filter: url(#psy);
+    margin: auto;
+    display: block;
+    width: 80%;
+    height: 80vh;
+    background: $hexagon-color-back;
+    border-radius: 16px;
+
+    >div {
+        padding: 1em 2em;
+        &:not(.active) {
+            display: none;
+        }
+
+        span {
+            color: #fff;
+            font-size: 1.8em;
+        }
+    }
+
+}
