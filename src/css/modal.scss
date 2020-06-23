@@ -10,7 +10,7 @@
     width: 80%;
     height: 80vh;
     background: $hexagon-color-back;
-    border-radius: 16px;
+    border-radius: 0.6em;
 
     >div {
         padding: 1em 2em;
@@ -27,11 +27,16 @@
 
     // Phone
     @media (max-width: $bp-max-tiny) {
-        margin-bottom: 1.5em;
+        margin-bottom: 0.8em;
         height: 50vh;
+        width: calc(100% - 0.8em);
 
-        >div span {
-            font-size: 1em;
+        >div {
+            padding: 1em 2em;
+            span {
+                font-size: 0.82em;
+            }
         }
     }
+
 }

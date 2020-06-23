@@ -1,3 +1,5 @@
+@import "constants";
+
 body:not(.en) .en { display: none; }
 body:not(.nl) .nl { display: none; }
 body:not(.hi) .hi { display: none; }

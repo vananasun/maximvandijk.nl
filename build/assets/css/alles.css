@@ -111,7 +111,7 @@
   width: 80%;
   height: 80vh;
   background: rgba(5, 5, 5, 0.35);
-  border-radius: 16px; }
+  border-radius: 0.6em; }
   .modal > div {
     padding: 1em 2em; }
     .modal > div:not(.active) {
@@ -121,10 +121,13 @@
       font-size: 1.8em; }
   @media (max-width: 768px) {
     .modal {
-      margin-bottom: 1.5em;
-      height: 50vh; }
-      .modal > div span {
-        font-size: 1em; } }
+      margin-bottom: 0.8em;
+      height: 50vh;
+      width: calc(100% - 0.8em); }
+      .modal > div {
+        padding: 1em 2em; }
+        .modal > div span {
+          font-size: 0.82em; } }
 
 body:not(.en) .en {
   display: none; }

@@ -27,3 +27,11 @@ body:not(.hi) .hi {
       .localepicker div img:active {
         cursor: grab;
         width: 68px; }
+  @media (max-width: 768px) {
+    .localepicker {
+      left: 0; }
+      .localepicker div {
+        float: none;
+        padding: 0.5em; }
+        .localepicker div img {
+          width: 45px; } }
