@@ -1,11 +1,14 @@
 body:not(.en) .en { display: none; }
 body:not(.nl) .nl { display: none; }
+body:not(.hi) .hi { display: none; }
 
 .localepicker {
     display: inline-block;
     position: absolute;
     z-index: 4;
+
     top: 0; right: 0;
+
     div {
         transition: all 0.3s;
         padding: 0.8em;
@@ -24,6 +27,18 @@ body:not(.nl) .nl { display: none; }
             &:active {
                 cursor: grab;
                 width: 68px;
+            }
+        }
+    }
+
+    @media (max-width: $bp-max-tiny) {
+        left: 0;
+        div {
+            float: none;
+            padding: 0.5em;
+            img {
+                width: 45px;
+
             }
         }
     }

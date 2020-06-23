@@ -11,6 +11,9 @@
   margin: auto;
   padding: 0;
   /* Clears unordered list default of 40px */ }
+  @media (max-width: 768px) {
+    #grid {
+      margin-top: 4em; } }
   #grid li {
     list-style-type: none;
     position: relative;
@@ -48,12 +51,18 @@
           font-size: 2.52vw;
           transition: all 0.25s ease-out;
           color: #000; }
+          @media (max-width: 768px) {
+            #grid li .hexagon:hover a {
+              font-size: 4.725vw; } }
       #grid li .hexagon:active {
         transition: all 68ms;
         background: rgba(54, 54, 54, 0.35) !important;
         cursor: grab; }
         #grid li .hexagon:active a {
           font-size: 1.995vw; }
+          @media (max-width: 768px) {
+            #grid li .hexagon:active a {
+              font-size: 4.9875vw; } }
       #grid li .hexagon a {
         transition: all 0.3s ease-out;
         color: rgba(255, 255, 255, 0.35);
@@ -62,6 +71,9 @@
         text-transform: lowercase;
         -webkit-text-stroke: 0.17vw white;
         -webkit-text-fill-color: black; }
+        @media (max-width: 768px) {
+          #grid li .hexagon a {
+            font-size: 5.25vw; } }
     #grid li:nth-child(3n+2) {
       margin: 0 1%; }
     #grid li:nth-child(6n+4), #grid li:nth-child(6n+5), #grid li:nth-child(6n+6) {

@@ -14,6 +14,10 @@
     margin: auto;
     padding: 0; /* Clears unordered list default of 40px */
     // transform: translateY(-5%); // Stupid fix
+    @media (max-width: $bp-max-tiny) {
+        // padding-bottom: 2em;
+        margin-top: 4em;
+    }
 
     li {
         list-style-type: none;
@@ -50,6 +54,9 @@
 
                 a {
                     font-size: $hexagon-font-size * 1.2;
+                    @media (max-width: $bp-max-tiny) {
+                        font-size: $hexagon-font-size * 0.9 * 2.5;
+                    }
                     transition: all 0.25s ease-out;
                     color: #000;
                 }
@@ -60,7 +67,9 @@
                 cursor: grab;
                 a {
                     font-size: $hexagon-font-size * 0.95;
-
+                    @media (max-width: $bp-max-tiny) {
+                        font-size: $hexagon-font-size * 0.95 * 2.5;
+                    }
                 }
             }
 
@@ -72,6 +81,9 @@
                 font-size: $hexagon-font-size;
                 font-weight: 600;
                 text-transform: lowercase;
+                @media (max-width: $bp-max-tiny) {
+                    font-size: $hexagon-font-size * 2.5;
+                }
 
                 -webkit-text-stroke: 0.17vw white;
                 -webkit-text-fill-color: black;

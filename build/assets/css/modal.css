@@ -13,3 +13,9 @@
     .modal > div span {
       color: #fff;
       font-size: 1.8em; }
+  @media (max-width: 768px) {
+    .modal {
+      margin-bottom: 1.5em;
+      height: 50vh; }
+      .modal > div span {
+        font-size: 1em; } }

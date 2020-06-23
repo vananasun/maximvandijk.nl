@@ -35,15 +35,20 @@ canvas#back {
     height: 100%;
 
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    // display:flex;justify-content:center;align-items:center;
+    flex-direction: column; // Phone
+    @media (min-width: $bp-min-big) {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
 
 
     .col {
 
         display: flex;
         flex-direction: column;
+        @media (max-width: $bp-max-tiny) {
+            flex-direction: row; // Phone
+        }
         flex-basis: 100%;
         flex: 1;
     }

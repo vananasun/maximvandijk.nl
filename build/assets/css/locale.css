@@ -4,6 +4,9 @@ body:not(.en) .en {
 body:not(.nl) .nl {
   display: none; }
 
+body:not(.hi) .hi {
+  display: none; }
+
 .localepicker {
   display: inline-block;
   position: absolute;

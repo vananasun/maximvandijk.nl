@@ -2,6 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="description" content="Web-portfolio van Maxim van Dijk :-)">
+        <meta name="keywords" content="Maxim van Dijk Portfolio">
+        <meta name="author" content="Maxim van Dijk">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"?
 
         <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
         <!-- <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet"> -->
@@ -61,9 +65,9 @@
 
             void main() {
                 gl_FragColor = vec4(
-                    texture2D(uSampler, vUVs - 0.0003                             ).r,
-                    texture2D(uSampler, vUVs - 0.00045 + wave(vUVs, uTime, 0.0051)).g,
-                    texture2D(uSampler, vUVs -           wave(vUVs, uTime, 0.0113)).b,
+                    texture2D(uSampler, vUVs - 0.0003 + wave(vUVs, uTime, 0.0096)).r,
+                    texture2D(uSampler, vUVs          + wave(vUVs, uTime, 0.0059)).g,
+                    texture2D(uSampler, vUVs                                     ).b,
                     1.0
                 );
                 // gl_FragColor *= blur13(uSampler, vUVs, vec2(uSize), vec2(1.0, 0.0));
@@ -151,6 +155,15 @@
                             <br>
                             Verder hoop ik dat je $dia goed gaat. 😊
                         </span>
+                        <span class="hi">
+                            <b>हाय!</b> मैं मैक्सिम हूं, मैं 21 साल का हूं और ...<br>
+                            <br>
+                            ... मुझे संरचनात्मक रूप से सुरुचिपूर्ण सॉफ्टवेयर लिखने का शौक है।<br>
+                            <br>
+                            मुझे संगीत बनाना भी पसंद है <a href="synth/">और मैं इसके लिए सॉफ्टवेयर लिखता हूं</a>।<br>
+                            <br>
+                            मुझे भी उम्मीद है कि आपका दिन अच्छा चल रहा होगा।
+                        </span>
                     </div>
                     <div id="content-projecten">
                         <span class="nl">
@@ -158,7 +171,7 @@
                             <br>
                             <a href="synth/">WebGL synthesizer</a><br>
                             <a href="airrpg/">AirRPG game</a><br>
-                            <a href="bouteagle.ace-games.com/">BoutEagle game</a><br>
+                            <a href="http://bouteagle.ace-games.com/">BoutEagle game</a><br>
                             <br>
                             <a href="https://github.com/vananasun">Mijn Github</a>
                         </span>
@@ -167,7 +180,7 @@
                             <br>
                             <a href="synth/">WebGL synthesizer</a><br>
                             <a href="airrpg/">AirRPG game</a><br>
-                            <a href="bouteagle.ace-games.com/">BoutEagle game</a><br>
+                            <a href="http://bouteagle.ace-games.com/">BoutEagle game</a><br>
                             <br>
                             <a href="https://github.com/vananasun">My Github</a>
                         </span>

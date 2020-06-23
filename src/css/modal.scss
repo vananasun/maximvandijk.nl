@@ -24,4 +24,14 @@
         }
     }
 
+
+    // Phone
+    @media (max-width: $bp-max-tiny) {
+        margin-bottom: 1.5em;
+        height: 50vh;
+
+        >div span {
+            font-size: 1em;
+        }
+    }
 }

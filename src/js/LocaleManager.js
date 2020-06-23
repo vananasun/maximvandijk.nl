@@ -39,7 +39,7 @@ function dia(country = 'nl') {
             'night': 'night'
         }
     };
-    if (new Date().getHours() < 12) return t[county]['night'];
+    if (new Date().getHours() < 12) return t[country]['night'];
     else return t[country]['day'];
 }
 
