@@ -1,3 +1,5 @@
+// let MijnHoofd = require('mijnhoofd/MijnHoofd.js');
+
 let Fallback = require('Fallback.js');
 let g_fps = require('FPS.js');
 let Modal = require('Modal.js');
@@ -19,16 +21,20 @@ const FADE_SPEED = 1 / 23;
 
 function render(t) {
 
-    g_canvas.clearCanvas();
-
     shader.bindMat4(shader.locateUniform("uProjection"), g_canvas.projectionMatrix);
+    grid.render(t);
 
-    if (grid.render(t) && (g_fadeOpacity -= FADE_SPEED) > 0.0) {
+    if (g_fadeOpacity > 0.0) {
+        g_fadeOpacity -= FADE_SPEED;
         let fadeInColor = {r: 34 / 255, g: 28 / 255, b: 56 / 255, a: g_fadeOpacity};
         g_rectangleRenderer.draw(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight, fadeInColor);
+        if (g_fadeOpacity <= 0.0)
+            gl.disable(gl.BLEND);
     }
 
     g_filterAnimation.update(t);
+
+    // g_mijnhoofd.render(t);
 
     window.requestAnimationFrame(render);
 
@@ -52,7 +58,9 @@ function init() {
         'back04',
         'back05',
         'back06',
-        'back07'
+        'back07',
+        'back08',
+        'back09'
     ];
     let name = 'assets/img/lazy/' + backs[Math.floor(Math.random() * backs.length)];
     g_lazyLoader = new LazyLoader();
@@ -76,6 +84,7 @@ function init() {
     // Make modal and locale objects
     g_modal = new Modal();
     g_locale = new LocaleManager();
+    // g_mijnhoofd = new MijnHoofd();
 
     render(0.0);
 }

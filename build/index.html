@@ -40,28 +40,13 @@
                 vec2 fac;
                 fac.x = sin(vUVs.y + t) * cos(vUVs.x * 14.0 + t) * size;
                 fac.y = sin(vUVs.x + t) * cos(vUVs.y *  7.6 + t) * size;
-                fac.x = sin(vUVs.y + t) * cos(vUVs.x * 21.0 + t) * size;
-                fac.y = sin(vUVs.x + t) * cos(vUVs.y * 62.6 + t) * size;
+                // fac.x = sin(vUVs.y + t) * cos(vUVs.x * 21.0 + t) * size;
+                // fac.y = sin(vUVs.x + t) * cos(vUVs.y * 62.6 + t) * size;
                 // fac.x =
                 // fac.y = cos()
                 // fac.x = sin()
                 return fac;
             }
-
-            // vec4 blur13(sampler2D image, vec2 uv, vec2 resolution, vec2 direction) {
-            //   vec4 color = vec4(0.0);
-            //   vec2 off1 = vec2(1.411764705882353) * direction;
-            //   vec2 off2 = vec2(3.2941176470588234) * direction;
-            //   vec2 off3 = vec2(5.176470588235294) * direction;
-            //   color += texture2D(image, uv) * 0.1964825501511404;
-            //   color += texture2D(image, uv + (off1 / resolution)) * 0.2969069646728344;
-            //   color += texture2D(image, uv - (off1 / resolution)) * 0.2969069646728344;
-            //   color += texture2D(image, uv + (off2 / resolution)) * 0.09447039785044732;
-            //   color += texture2D(image, uv - (off2 / resolution)) * 0.09447039785044732;
-            //   color += texture2D(image, uv + (off3 / resolution)) * 0.010381362401148057;
-            //   color += texture2D(image, uv - (off3 / resolution)) * 0.010381362401148057;
-            //   return color;
-            // }
 
             void main() {
                 gl_FragColor = vec4(
@@ -140,7 +125,7 @@
                         <span class="nl">
                             <b>$groet,</b> ik ben Maxim,<br>Ik ben $leeftijd jaar èèènn...<br>
                             <br>
-                            ...Ik heb een passie voor het schrijven van structureel elegante software.<br>
+                            ...Ik hou van elegante software schrijven.<br>
                             <br>
                             Ook houd ik van muziek creëren <a href="synth/">en daarvoor schrijf ik ook software</a>.<br>
                             <br>
@@ -149,11 +134,11 @@
                         <span class="en">
                             <b>$groet,</b> I am Maxim,<br>I am $leeftijd years old, aandd...<br>
                             <br>
-                            ...I have a passion for writing structurally elegant software.
+                            ...I love writing elegant software.<br>
                             <br>
                             I also love creating music <a href="synth/">and for that I also write software</a>.<br>
                             <br>
-                            Verder hoop ik dat je $dia goed gaat. 😊
+                            Also, I hope you're having a great $dia. 😊
                         </span>
                         <span class="hi">
                             <b>हाय!</b> मैं मैक्सिम हूं, मैं 21 साल का हूं और ...<br>
@@ -164,6 +149,9 @@
                             <br>
                             मुझे भी उम्मीद है कि आपका दिन अच्छा चल रहा होगा।
                         </span>
+                        <div class="mijnhoofd">
+                            <canvas id="mijnhoofd__canvas" width="500" height="500"></canvas>
+                        </div>
                     </div>
                     <div id="content-projecten">
                         <span class="nl">

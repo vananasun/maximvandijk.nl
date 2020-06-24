@@ -10,7 +10,8 @@ function WebGLCanvas(id) {
     // Settings
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-    gl.clearColor(0,0,0,1);
+    gl.clearColor(34/255, 28/255, 56/255,1);
+
     this.clearCanvas();
     return true;
 };
