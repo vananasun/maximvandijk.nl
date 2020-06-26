@@ -36,25 +36,31 @@
             varying vec2 vUVs;
             uniform vec2 uSize;
 
-            vec2 wave(vec2 uvs, float t, float size) {
+            vec2 wave(float t, float size) {
                 vec2 fac;
                 fac.x = sin(vUVs.y + t) * cos(vUVs.x * 14.0 + t) * size;
                 fac.y = sin(vUVs.x + t) * cos(vUVs.y *  7.6 + t) * size;
                 // fac.x = sin(vUVs.y + t) * cos(vUVs.x * 21.0 + t) * size;
                 // fac.y = sin(vUVs.x + t) * cos(vUVs.y * 62.6 + t) * size;
-                // fac.x =
-                // fac.y = cos()
-                // fac.x = sin()
                 return fac;
             }
 
             void main() {
-                gl_FragColor = vec4(
-                    texture2D(uSampler, vUVs - 0.0003 + wave(vUVs, uTime, 0.0096)).r,
-                    texture2D(uSampler, vUVs          + wave(vUVs, uTime, 0.0059)).g,
-                    texture2D(uSampler, vUVs                                     ).b,
-                    1.0
+                // vec2 waveDouble = wave(vUVs, uTime, 0.0159);
+                // gl_FragColor = vec4(
+                //     texture2D(uSampler, vUVs - 0.0003 + wave(vUVs, uTime, 0.0196)).r,
+                //     texture2D(uSampler, vUVs          + waveDouble).g,
+                //     texture2D(uSampler, vUVs                                 ).b,
+                //     1.0
+                // );
+
+                vec3 effect = vec3(
+                    texture2D(uSampler, vUVs + wave(uTime, 0.0100)).r,
+                    texture2D(uSampler, vUVs - wave(uTime, 0.0170)).g,
+                    texture2D(uSampler, vUVs + wave(uTime, 0.0270)).b
                 );
+                gl_FragColor = texture2D(uSampler, vUVs) * vec4(effect.rgb, 1.0);
+
                 // gl_FragColor *= blur13(uSampler, vUVs, vec2(uSize), vec2(1.0, 0.0));
 
                 // vec3 minColor = vec3(34.0 / 255.0, 28.0 / 255.0, 56.0 / 255.0);
@@ -160,6 +166,7 @@
                             <a href="synth/">WebGL synthesizer</a><br>
                             <a href="airrpg/">AirRPG game</a><br>
                             <a href="http://bouteagle.ace-games.com/">BoutEagle game</a><br>
+                            <!-- <a href="devanagari/">Leer Devanagari</a><br> -->
                             <br>
                             <a href="https://github.com/vananasun">Mijn Github</a>
                         </span>
@@ -169,6 +176,7 @@
                             <a href="synth/">WebGL synthesizer</a><br>
                             <a href="airrpg/">AirRPG game</a><br>
                             <a href="http://bouteagle.ace-games.com/">BoutEagle game</a><br>
+                            <!-- <a href="devanagari/">Learn Devanagari</a><br> -->
                             <br>
                             <a href="https://github.com/vananasun">My Github</a>
                         </span>
