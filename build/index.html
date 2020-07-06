@@ -59,7 +59,7 @@
                     texture2D(uSampler, vUVs - wave(uTime, 0.0170)).g,
                     texture2D(uSampler, vUVs + wave(uTime, 0.0270)).b
                 );
-                gl_FragColor = texture2D(uSampler, vUVs) * vec4(effect.rgb, 1.0);
+                gl_FragColor = texture2D(uSampler, vUVs) + vec4(effect.rgb, 1.0);
 
                 // gl_FragColor *= blur13(uSampler, vUVs, vec2(uSize), vec2(1.0, 0.0));
 
@@ -163,6 +163,7 @@
                         <span class="nl">
                             Dit zijn een aantal van mijn projecten:<br>
                             <br>
+                            <a href="https://github.com/vananasun/easyDevanagari">easyDevanagari</a>
                             <a href="synth/">WebGL synthesizer</a><br>
                             <a href="airrpg/">AirRPG game</a><br>
                             <a href="http://bouteagle.ace-games.com/">BoutEagle game</a><br>
@@ -173,6 +174,7 @@
                         <span class="en">
                             These are a few of my projects:<br>
                             <br>
+                            <a href="https://github.com/vananasun/easyDevanagari">easyDevanagari</a>
                             <a href="synth/">WebGL synthesizer</a><br>
                             <a href="airrpg/">AirRPG game</a><br>
                             <a href="http://bouteagle.ace-games.com/">BoutEagle game</a><br>

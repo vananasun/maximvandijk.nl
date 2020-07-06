@@ -5,6 +5,7 @@ S   3D maxim head in the hexagon.
 S   Een lekker ambient muziekje op de site
 
 
+C   Hover over projects to see a description.
 C   JPEG fallback
 C   Show active section button
 C   Rewrite SVG filters in GLSL / Optimize in another way (this is the bottleneck but idk how to do this)???
