@@ -1,0 +1,15 @@
+@import "common/base";
+
+.hoofd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    @include noselect();
+    img {
+        width: 10vw;
+        height: auto;
+        margin: auto;
+    }
+
+}

@@ -43,6 +43,8 @@ function dia(country = 'nl') {
     else return t[country]['day'];
 }
 
+
+
 /*******************************************************************************
  *
  ******************************************************************************/
@@ -50,29 +52,31 @@ function dia(country = 'nl') {
 
 
 LocaleManager = function() {
-    let _content = document.querySelector('.modal>div.active');
-    if (!_content) return;
-
-    switch (_content.id) {
-    case 'content-over':
-        let _spans = _content.querySelectorAll('span');
-        _spans.forEach(_span => {
-            if (_span.classList.contains('nl')) {
-                _span.innerHTML = _span.innerHTML.replace('$groet', groet());
-                _span.innerHTML = _span.innerHTML.replace('$leeftijd', leeftijd());
-                _span.innerHTML = _span.innerHTML.replace('$dia', dia());
-            } else {
-                _span.innerHTML = _span.innerHTML.replace('$groet', groet('en'));
-                _span.innerHTML = _span.innerHTML.replace('$leeftijd', leeftijd());
-                _span.innerHTML = _span.innerHTML.replace('$dia', dia('en'));
-            }
-        });
-        break;
-    case 'content-projecten':
-        break;
-    case 'content-contact':
-        break;
-    }
+    let _sections = document.querySelectorAll('.section');
+    if (!_sections) return;
+    _sections.forEach(_section => {
+        switch (_section.id) {
+        case 'section-about':
+            let _spans = _section.querySelectorAll('span');
+            _spans.forEach(_span => {
+                if (_span.classList.contains('nl')) {
+                    _span.innerHTML = _span.innerHTML.replace('$groet', groet());
+                    _span.innerHTML = _span.innerHTML.replace('$leeftijd', leeftijd());
+                    _span.innerHTML = _span.innerHTML.replace('$dia', dia());
+                } else {
+                    _span.innerHTML = _span.innerHTML.replace('$groet', groet('en'));
+                    _span.innerHTML = _span.innerHTML.replace('$leeftijd', leeftijd());
+                    _span.innerHTML = _span.innerHTML.replace('$dia', dia('en'));
+                }
+            });
+            break;
+        case 'section-projects':
+            break;
+        case 'section-contact':
+            break;
+        }
+    });
+    
 }
 
 LocaleManager.prototype.change = function(country) {

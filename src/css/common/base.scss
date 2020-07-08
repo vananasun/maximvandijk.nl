@@ -1,0 +1,98 @@
+// colour scheme
+$col-1: #91a668ff;
+$col-2: #48582dff;
+$col-3: #9d69a3ff;
+$col-4: #e85d75ff;
+$col-5: #2f0a28ff;
+$opacity-low: .15;
+$opacity-med: .32;
+$opacity-high: .7;
+
+
+// general
+html {
+    font-size: 100%;
+    overflow: hidden;
+}
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+body {
+    background-color: $col-2;
+}
+td {
+    word-break: break-all;
+}
+
+
+
+
+
+
+
+
+
+// mixins
+@mixin transition($time: 300ms) {
+    transition: all $time;
+}
+
+@mixin noselect($val: none) {
+    -moz-user-select: $val;
+    -webkit-user-select: $val;
+    -ms-user-select: $val;
+    user-select: $val;
+}
+
+@mixin text-outline($color: $col-5) {
+    $w: 0.05rem;
+    text-shadow: $w * 3 $w * 3 0 $color,
+                -$w -$w 0 $color,
+                 $w -$w 0 $color,
+                -$w  $w 0 $color,
+                 $w  $w 0 $color;
+}
+
+@mixin center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+// classes
+.page-wrapper {
+    height: 100vh;
+}
+.text-title {
+    @include noselect();
+    // font-size: 4.5rem;
+    // font-weight: bold;
+    font-family: 'Fredericka the Great';
+    font-weight: normal;
+    font-size: 10rem;
+
+    @include text-outline($col-5);
+    // -webkit-text-stroke: 0.12rem $col-5;
+    // -webkit-text-fill-color: transparentize($col-3, 1 - $opacity-high);
+    color: $col-3;
+
+}
+a.link {
+    transition: background-color 150ms;
+    &:hover {
+        background-color: transparentize($col-3, 1 - $opacity-med);
+    }
+}
+
+::selection {
+    color: $col-3;
+    background-color: $col-5;
+}

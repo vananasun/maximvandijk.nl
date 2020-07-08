@@ -1,0 +1,16 @@
+<div class="section active" id="section-welcome">
+    <span class="hoofd">
+        <img src="img/roterend_hoofd.gif" title="Mijn hoofd" draggable="false"
+             alt="Hier zou een plaatje van mijn hoofd moeten staan."/>
+    </span>
+
+    <span class="text-title">
+        <%
+        let text = 'Welkom!';
+        for (var i = 0; i < text.length; i++) {
+            %><span><%
+            __append(text[i])
+            %></span><%
+        } %>
+    </span>
+</div>

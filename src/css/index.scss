@@ -1,0 +1,58 @@
+@import "common/base";
+@import "common/locale";
+@import "index/video";
+@import "index/hoofd";
+@import "index/navigator";
+@import "index/sections";
+
+.section-wrapper {
+    @include center();
+    height: calc(100% - 7.75rem);
+    margin: auto;
+
+    .section {
+        display: flex;
+        align-items: center;
+        position: absolute;
+
+        // animation
+        opacity: 0;
+        pointer-events: none;
+        @include transition();
+        &.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        // colouring and effects
+        font-family: 'Poiret One';
+        font-weight: bold;
+        font-size: 2rem;
+        color: $col-3;
+        a { color: $col-3 };
+        @include text-outline($col-5);
+        backdrop-filter: blur(0.43rem);
+        background-color: transparentize($col-1, 1 - $opacity-low);
+        border-radius: 0.5rem;
+
+
+        // sizing, margin & padding
+        width: 61.8vw;
+        min-height: 60vh;
+        .inner {
+            width: 100%;
+            padding: 2.5rem;
+            text-align: justify;
+            table {
+                margin: 0;
+                width: 100%;
+                tr {
+                    td:nth-child(2) {
+                        text-align: right;
+                    }
+                }
+            }
+
+        }
+    }
+}

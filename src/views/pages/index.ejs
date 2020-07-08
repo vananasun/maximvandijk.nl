@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Fredericka+the+Great&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/index.css"/>
+    </head>
+    <body class="nl">
+        <div class="page-wrapper">
+            <video autoplay loop muted>
+                <source type="video/mp4" src="video/closeup_02.mp4">
+            </video>
+
+
+            <div class="section-wrapper">
+                <%- include('../partials/index-welcome.ejs') %>
+                <%- include('../partials/index-about.ejs') %>
+                <%- include('../partials/index-projects.ejs') %>
+                <%- include('../partials/index-contact.ejs') %>
+            </div>
+
+
+
+            <nav>
+                <ul class="navigator">
+                    <%
+                    let navButtons = {
+                        'about'   : { 'nl': 'Over Mij', 'en': 'About Me' },
+                        'projects': { 'nl': 'Projecten', 'en': 'Projects' },
+                        'contact' : { 'nl': 'Contact', 'en': 'Contact' }
+                    };
+                    for (let k in navButtons) {
+                        %><li>
+                            <a id=<%=k%>>
+                                <% for (let lang in navButtons[k]) { %>
+                                    <span class="<%=lang%>"><%=navButtons[k][lang]%></span>
+                                <% } %>
+                            </a>
+                        </li><%
+                    } %>
+                </ul>
+            </nav>
+
+
+
+            <div class="locale-picker">
+                <div><img id="flag-nl" src="img/flag_nl_btn.webp" onclick="g_locale.change('nl')"/></div>
+                <div><img id="flag-en" src="img/flag_en_btn.webp" onclick="g_locale.change('en')"/></div>
+            </div>
+
+
+        </div>
+
+
+        <script src="js/alles.min.js"></script>
+    <body>
+</html>

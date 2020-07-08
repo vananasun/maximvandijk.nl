@@ -1,0 +1,42 @@
+@mixin position-bottom() {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+}
+
+
+ul.navigator {
+
+    @include position-bottom();
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.75rem 0;
+    height: 7.75rem;
+    backdrop-filter: blur(0.28rem);
+    background-color: transparentize($col-1, 1 - $opacity-low);
+
+
+
+    li {
+        color: $col-3;
+        padding: 0 1.5rem;
+        list-style: none;
+        font-size: 6rem;
+        font-family: 'Poiret One', cursive;
+        @include noselect();
+        @include transition();
+        @include text-outline();
+        &:hover {
+            font-size: 7rem;
+            cursor: grab;
+            background: transparentize($col-3, 1 - $opacity-med);
+        }
+        &:active {
+            font-size: 5rem;
+            cursor: grabbing;
+        }
+    }
+}

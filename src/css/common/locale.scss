@@ -1,0 +1,45 @@
+@import "common/base";
+
+body:not(.en) .en { display: none; }
+body:not(.nl) .nl { display: none; }
+body:not(.hi) .hi { display: none; }
+
+.locale-picker {
+    display: inline-block;
+    position: absolute;
+    z-index: 4;
+
+    top: 0; right: 0;
+
+    div {
+        @include transition();
+        padding: 0.8rem;
+        float: left;
+
+        img {
+            @include transition(0.25s);
+            width: 5rem;
+            height: auto;
+            &:hover {
+                cursor: pointer;
+                width: 5.8rem;
+            }
+            &:active {
+                cursor: grab;
+                width: 5.3rem;
+            }
+        }
+    }
+
+    // @media (max-width: $bp-max-tiny) {
+    //     left: 0;
+    //     div {
+    //         float: none;
+    //         padding: 0.5rem;
+    //         img {
+    //             width: 45rem / 12;
+    //
+    //         }
+    //     }
+    // }
+}

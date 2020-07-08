@@ -1,3 +1,27 @@
+S   Regengeluiden + drone <3
+C   JPEG video fallback / lazy load
+C   Deepdream video
+
+
+
+
+
+
+----Projects to refer to----
+-   easySanskrit
+-   AirRPG
+-   WebGLSynth (and upload it to github)
+-   vVRC7 (upload it to github and maybe make a page for it)
+-   BoutEagle (I worked on this)
+
+
+
+
+
+
+
+
+---------------------------OLD-------------------------------
 M   Make columns responsive so that on phone its rows.
 
 
