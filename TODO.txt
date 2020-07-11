@@ -1,22 +1,23 @@
+M   Make responsive
+S   Add metadata
 S   Regengeluiden + drone <3
 C   JPEG video fallback / lazy load
 C   Deepdream video
+C   Non-selectable language buttons also not draggable
+
+
+
+Voeg CV toe
 
 
 
 
 
 
-----Projects to refer to----
--   easySanskrit
--   AirRPG
--   WebGLSynth (and upload it to github)
--   vVRC7 (upload it to github and maybe make a page for it)
--   BoutEagle (I worked on this)
 
-
-
-
+----simplySanskrit----
+M   Firefox & edge demos
+C   Moving clouds
 
 
 

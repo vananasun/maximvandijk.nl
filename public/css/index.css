@@ -1,11 +1,12 @@
 html {
-  font-size: 100%;
-  overflow: hidden; }
+  font-size: 100%; }
 
 html, body {
   margin: 0;
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
+
+html, body {
+  overflow: hidden; }
 
 body {
   background-color: #48582dff; }
@@ -16,63 +17,8 @@ td {
 .page-wrapper {
   height: 100vh; }
 
-.text-title {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-family: 'Fredericka the Great';
-  font-weight: normal;
-  font-size: 10rem;
-  text-shadow: 0.15rem 0.15rem 0 #2f0a28ff, -0.1rem 0 #2f0a28ff, 0rem 0 #2f0a28ff, -0.05rem 0.05rem 0 #2f0a28ff, 0.05rem 0.05rem 0 #2f0a28ff;
-  color: #9d69a3ff; }
-
 a.link {
   transition: background-color 150ms; }
-  a.link:hover {
-    background-color: rgba(157, 105, 163, 0.32); }
-
-::selection {
-  color: #9d69a3ff;
-  background-color: #2f0a28ff; }
-
-html {
-  font-size: 100%;
-  overflow: hidden; }
-
-html, body {
-  margin: 0;
-  width: 100%;
-  height: 100%; }
-
-body {
-  background-color: #48582dff; }
-
-td {
-  word-break: break-all; }
-
-.page-wrapper {
-  height: 100vh; }
-
-.text-title {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-family: 'Fredericka the Great';
-  font-weight: normal;
-  font-size: 10rem;
-  text-shadow: 0.15rem 0.15rem 0 #2f0a28ff, -0.1rem 0 #2f0a28ff, 0rem 0 #2f0a28ff, -0.05rem 0.05rem 0 #2f0a28ff, 0.05rem 0.05rem 0 #2f0a28ff;
-  color: #9d69a3ff; }
-
-a.link {
-  transition: background-color 150ms; }
-  a.link:hover {
-    background-color: rgba(157, 105, 163, 0.32); }
-
-::selection {
-  color: #9d69a3ff;
-  background-color: #2f0a28ff; }
 
 body:not(.en) .en {
   display: none; }
@@ -84,6 +30,10 @@ body:not(.hi) .hi {
   display: none; }
 
 .locale-picker {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   display: inline-block;
   position: absolute;
   z-index: 4;
@@ -114,13 +64,14 @@ video {
   height: 100%; }
 
 html {
-  font-size: 100%;
-  overflow: hidden; }
+  font-size: 100%; }
 
 html, body {
   margin: 0;
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
+
+html, body {
+  overflow: hidden; }
 
 body {
   background-color: #48582dff; }
@@ -131,25 +82,8 @@ td {
 .page-wrapper {
   height: 100vh; }
 
-.text-title {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-family: 'Fredericka the Great';
-  font-weight: normal;
-  font-size: 10rem;
-  text-shadow: 0.15rem 0.15rem 0 #2f0a28ff, -0.1rem 0 #2f0a28ff, 0rem 0 #2f0a28ff, -0.05rem 0.05rem 0 #2f0a28ff, 0.05rem 0.05rem 0 #2f0a28ff;
-  color: #9d69a3ff; }
-
 a.link {
   transition: background-color 150ms; }
-  a.link:hover {
-    background-color: rgba(157, 105, 163, 0.32); }
-
-::selection {
-  color: #9d69a3ff;
-  background-color: #2f0a28ff; }
 
 .hoofd {
   display: flex;
@@ -164,6 +98,28 @@ a.link {
     width: 10vw;
     height: auto;
     margin: auto; }
+
+html {
+  font-size: 100%; }
+
+html, body {
+  margin: 0;
+  width: 100%; }
+
+html, body {
+  overflow: hidden; }
+
+body {
+  background-color: #48582dff; }
+
+td {
+  word-break: break-all; }
+
+.page-wrapper {
+  height: 100vh; }
+
+a.link {
+  transition: background-color 150ms; }
 
 ul.navigator {
   position: absolute;
@@ -180,6 +136,7 @@ ul.navigator {
   ul.navigator li {
     color: #9d69a3ff;
     padding: 0 1.5rem;
+    overflow-wrap: break-word;
     list-style: none;
     font-size: 6rem;
     font-family: 'Poiret One', cursive;
@@ -196,15 +153,23 @@ ul.navigator {
     ul.navigator li:active {
       font-size: 5rem;
       cursor: grabbing; }
+    @media only screen and (max-width: 47.99938rem) {
+      ul.navigator li {
+        font-size: 3rem; }
+        ul.navigator li:hover {
+          font-size: 3.5rem; }
+        ul.navigator li:active {
+          font-size: 2.5rem; } }
 
 html {
-  font-size: 100%;
-  overflow: hidden; }
+  font-size: 100%; }
 
 html, body {
   margin: 0;
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
+
+html, body {
+  overflow: hidden; }
 
 body {
   background-color: #48582dff; }
@@ -214,6 +179,33 @@ td {
 
 .page-wrapper {
   height: 100vh; }
+
+a.link {
+  transition: background-color 150ms; }
+
+.section#section-welcome {
+  backdrop-filter: none;
+  background: none;
+  width: unset;
+  margin: auto; }
+  .section#section-welcome > span {
+    padding: 0.75rem; }
+  .section#section-welcome .text-title {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .section#section-welcome .text-title span {
+      transition: all 300ms; }
+      .section#section-welcome .text-title span:hover {
+        font-size: 12rem; }
+      @media only screen and (max-width: 47.99938rem) {
+        .section#section-welcome .text-title span {
+          font-size: 5.5rem; }
+          .section#section-welcome .text-title span:hover {
+            font-size: 7.5rem; } }
+
+.section#section-contact .inner table tr {
+  font-size: 3rem; }
 
 .text-title {
   -moz-user-select: none;
@@ -234,25 +226,6 @@ a.link {
 ::selection {
   color: #9d69a3ff;
   background-color: #2f0a28ff; }
-
-.section#section-welcome {
-  backdrop-filter: none;
-  background: none;
-  width: unset;
-  margin: auto; }
-  .section#section-welcome > span {
-    padding: 0.75rem; }
-  .section#section-welcome .text-title {
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .section#section-welcome .text-title span {
-      transition: all 300ms; }
-      .section#section-welcome .text-title span:hover {
-        font-size: 12rem; }
-
-.section#section-contact .inner table tr {
-  font-size: 3rem; }
 
 .section-wrapper {
   display: flex;
@@ -275,8 +248,8 @@ a.link {
     backdrop-filter: blur(0.43rem);
     background-color: rgba(145, 166, 104, 0.15);
     border-radius: 0.5rem;
-    width: 61.8vw;
-    min-height: 60vh; }
+    min-height: 60vh;
+    width: 61.8vw; }
     .section-wrapper .section.active {
       opacity: 1;
       pointer-events: all; }
@@ -291,3 +264,6 @@ a.link {
         width: 100%; }
         .section-wrapper .section .inner table tr td:nth-child(2) {
           text-align: right; }
+    @media only screen and (max-width: 47.99938rem) {
+      .section-wrapper .section {
+        width: 100vw; } }

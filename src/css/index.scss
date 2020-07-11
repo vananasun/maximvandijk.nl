@@ -5,6 +5,28 @@
 @import "index/navigator";
 @import "index/sections";
 
+.text-title {
+    @include noselect();
+    font-family: 'Fredericka the Great';
+    font-weight: normal;
+    font-size: 10rem;
+
+    @include text-outline($col-5);
+    color: $col-3;
+
+}
+a.link {
+    transition: background-color 150ms;
+    &:hover {
+        background-color: transparentize($col-3, 1 - $opacity-med);
+    }
+}
+::selection {
+    color: $col-3;
+    background-color: $col-5;
+}
+
+
 .section-wrapper {
     @include center();
     height: calc(100% - 7.75rem);
@@ -37,7 +59,6 @@
 
 
         // sizing, margin & padding
-        width: 61.8vw;
         min-height: 60vh;
         .inner {
             width: 100%;
@@ -53,6 +74,12 @@
                 }
             }
 
+        }
+
+        // responsiveness
+        width: 61.8vw;
+        @media only screen and (max-width: $bp-phone-max) {
+            width: 100vw;
         }
     }
 }

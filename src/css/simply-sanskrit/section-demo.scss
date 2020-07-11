@@ -1,0 +1,36 @@
+@import "common/standard";
+@import "simply-sanskrit/constants";
+
+.page#demo {
+    color: $col-light;
+    font-family: Yatra One;
+
+    >div{
+        margin: 0 15vmin;
+        text-align: center;
+
+        h3 {
+            margin: 0;
+            padding-top: 5vw;
+            padding-bottom: 2vw;
+            font-size: 2.5vmax;
+        }
+        p {
+            margin: 0;
+            font-size: 1.8vmax;
+            padding-bottom: 2.2vmax;
+        }
+
+
+        @media only screen and (max-width: $bp-phone-max) {
+            margin: 0 6vw;
+            text-align: justify;
+            p {
+                font-size: 2.2vmax;
+            }
+        }
+
+    }
+
+
+}

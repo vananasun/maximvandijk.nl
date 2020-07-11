@@ -1,0 +1,32 @@
+@mixin transition($time: 300ms) {
+    transition: all $time;
+}
+
+@mixin noselect($val: none) {
+    -moz-user-select: $val;
+    -webkit-user-select: $val;
+    -ms-user-select: $val;
+    user-select: $val;
+}
+
+@mixin text-outline($color: $col-5) {
+    $w: 0.05rem;
+    text-shadow: $w * 3 $w * 3 0 $color,
+                -$w -$w 0 $color,
+                 $w -$w 0 $color,
+                -$w  $w 0 $color,
+                 $w  $w 0 $color;
+}
+
+@mixin text-outline-around($color, $w: 0.05rem) {
+    text-shadow:-$w -$w 0 $color,
+                 $w -$w 0 $color,
+                -$w  $w 0 $color,
+                 $w  $w 0 $color;
+}
+
+@mixin center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

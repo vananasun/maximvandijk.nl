@@ -1,3 +1,7 @@
+@import "common/base";
+
+
+
 @mixin position-bottom() {
     position: absolute;
     bottom: 0;
@@ -23,6 +27,7 @@ ul.navigator {
     li {
         color: $col-3;
         padding: 0 1.5rem;
+        overflow-wrap: break-word;
         list-style: none;
         font-size: 6rem;
         font-family: 'Poiret One', cursive;
@@ -37,6 +42,17 @@ ul.navigator {
         &:active {
             font-size: 5rem;
             cursor: grabbing;
+        }
+
+        // responsiveness; make the text fit
+        @media only screen and (max-width: $bp-phone-max) {
+            font-size: 3rem;
+            &:hover {
+                font-size: 3.5rem;
+            }
+            &:active {
+                font-size: 2.5rem;
+            }
         }
     }
 }

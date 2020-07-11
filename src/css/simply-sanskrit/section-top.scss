@@ -1,0 +1,54 @@
+.page:first-child {
+    background-image: url('../img/simply-sanskrit/shiva.svg');
+    background-position: center bottom;
+    background-size: cover;
+    text-align: center;
+    >div {
+        @include center();
+        div {
+            h1,h2 {
+                padding-left: 2vw;
+                padding-right: 2vw;
+                text-align: center;
+                @include noselect();
+                @include text-outline-around($col-light, 0.25rem);
+            }
+            h1 {
+                color: $col-dark;
+                margin-bottom: 0;
+                line-height: 9vw;
+                font-size: 11vw;
+            }
+            h2 {
+                margin-top: 5vw;
+                text-align: center;
+                color: $col-dark;
+                font-size: 4vw;
+                font-weight: bold;
+                font-family: 'Yatra One', serif;
+                word-break: break-word;
+            }
+
+            #scroll-btn {
+                width: 5vw;
+                @include transition(0.08s);
+                &:hover {
+                    width: 5.3vw;
+                    cursor: grab;
+                }
+                &:active {
+                    width: 5vw;
+                    cursor: grabbing;
+                }
+            }
+
+
+        }
+    }
+
+
+    @media only screen and (max-width: $bp-phone-max) {
+        min-height: 33vh;
+        #scroll-btn { display: none; };
+    }
+}

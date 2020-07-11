@@ -1,0 +1,42 @@
+@import "common/standard";
+@import "common/locale";
+@import "simply-sanskrit/constants";
+
+html {
+    font-family: Samarkan, 'Inknut Antiqua', serif;
+    font-size: 100%;
+    overflow-x: hidden;
+}
+h1 {
+    font-size: 7rem;
+}
+::selection {
+    color: $col-light;
+    background-color: $col-dark;
+}
+
+
+.page-wrapper {
+}
+.page {
+    display: block;
+    min-width: 100vw;
+    min-height: 100vh;
+    background: $col-dark;
+}
+
+@import "simply-sanskrit/section-top";
+@import "simply-sanskrit/section-demo";
+
+
+
+a {
+    color: $col-light;
+    @include transition(0.1s);
+    &:hover {
+        color: white;
+    }
+    &:active {
+        color: $col-light;
+    }
+}

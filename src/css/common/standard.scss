@@ -1,0 +1,11 @@
+html {
+    font-size: 100%;
+}
+html, body {
+    margin: 0;
+    width: 100%;
+}
+
+// media breakpoints
+$bp-phone-max: (767.99rem / 16);
+$bp-big-min: (768rem / 16);

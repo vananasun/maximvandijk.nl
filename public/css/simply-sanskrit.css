@@ -1,0 +1,149 @@
+html {
+  font-size: 100%; }
+
+html, body {
+  margin: 0;
+  width: 100%; }
+
+body:not(.en) .en {
+  display: none; }
+
+body:not(.nl) .nl {
+  display: none; }
+
+body:not(.hi) .hi {
+  display: none; }
+
+.locale-picker {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: inline-block;
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  right: 0; }
+  .locale-picker div {
+    transition: all 300ms;
+    padding: 0.8rem;
+    float: left; }
+    .locale-picker div img {
+      transition: all 0.25s;
+      width: 5rem;
+      height: auto; }
+      .locale-picker div img:hover {
+        cursor: pointer;
+        width: 5.8rem; }
+      .locale-picker div img:active {
+        cursor: grab;
+        width: 5.3rem; }
+
+@font-face {
+  font-family: 'Samarkan';
+  src: url("../font/Samarkan.ttf") format("truetype"); }
+
+html {
+  font-family: Samarkan, 'Inknut Antiqua', serif;
+  font-size: 100%;
+  overflow-x: hidden; }
+
+h1 {
+  font-size: 7rem; }
+
+::selection {
+  color: #E29B29;
+  background-color: #21201C; }
+
+.page {
+  display: block;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: #21201C; }
+
+.page:first-child {
+  background-image: url("../img/simply-sanskrit/shiva.svg");
+  background-position: center bottom;
+  background-size: cover;
+  text-align: center; }
+  .page:first-child > div {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .page:first-child > div div h1, .page:first-child > div div h2 {
+      padding-left: 2vw;
+      padding-right: 2vw;
+      text-align: center;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      text-shadow: -0.5rem 0 #E29B29, 0rem 0 #E29B29, -0.25rem 0.25rem 0 #E29B29, 0.25rem 0.25rem 0 #E29B29; }
+    .page:first-child > div div h1 {
+      color: #21201C;
+      margin-bottom: 0;
+      line-height: 9vw;
+      font-size: 11vw; }
+    .page:first-child > div div h2 {
+      margin-top: 5vw;
+      text-align: center;
+      color: #21201C;
+      font-size: 4vw;
+      font-weight: bold;
+      font-family: 'Yatra One', serif;
+      word-break: break-word; }
+    .page:first-child > div div #scroll-btn {
+      width: 5vw;
+      transition: all 0.08s; }
+      .page:first-child > div div #scroll-btn:hover {
+        width: 5.3vw;
+        cursor: grab; }
+      .page:first-child > div div #scroll-btn:active {
+        width: 5vw;
+        cursor: grabbing; }
+  @media only screen and (max-width: 47.99938rem) {
+    .page:first-child {
+      min-height: 33vh; }
+      .page:first-child #scroll-btn {
+        display: none; } }
+
+html {
+  font-size: 100%; }
+
+html, body {
+  margin: 0;
+  width: 100%; }
+
+@font-face {
+  font-family: 'Samarkan';
+  src: url("../font/Samarkan.ttf") format("truetype"); }
+
+.page#demo {
+  color: #E29B29;
+  font-family: Yatra One; }
+  .page#demo > div {
+    margin: 0 15vmin;
+    text-align: center; }
+    .page#demo > div h3 {
+      margin: 0;
+      padding-top: 5vw;
+      padding-bottom: 2vw;
+      font-size: 2.5vmax; }
+    .page#demo > div p {
+      margin: 0;
+      font-size: 1.8vmax;
+      padding-bottom: 2.2vmax; }
+    @media only screen and (max-width: 47.99938rem) {
+      .page#demo > div {
+        margin: 0 6vw;
+        text-align: justify; }
+        .page#demo > div p {
+          font-size: 2.2vmax; } }
+
+a {
+  color: #E29B29;
+  transition: all 0.1s; }
+  a:hover {
+    color: white; }
+  a:active {
+    color: #E29B29; }

@@ -1,5 +1,14 @@
 /***
  *
+ * Apply locale
+ *
+ */
+let LocaleManager = require('LocaleManager.js');
+g_locale = new LocaleManager();
+
+
+/***
+ *
  * Play music
  *
  */

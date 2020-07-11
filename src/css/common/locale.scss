@@ -1,10 +1,12 @@
-@import "common/base";
+@import "common/mixin";
 
 body:not(.en) .en { display: none; }
 body:not(.nl) .nl { display: none; }
 body:not(.hi) .hi { display: none; }
 
 .locale-picker {
+    @include noselect();
+
     display: inline-block;
     position: absolute;
     z-index: 4;
@@ -31,15 +33,4 @@ body:not(.hi) .hi { display: none; }
         }
     }
 
-    // @media (max-width: $bp-max-tiny) {
-    //     left: 0;
-    //     div {
-    //         float: none;
-    //         padding: 0.5rem;
-    //         img {
-    //             width: 45rem / 12;
-    //
-    //         }
-    //     }
-    // }
 }
