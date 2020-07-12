@@ -8,12 +8,12 @@ let app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/src/views'));
 
-// app.use(express.static('public'));
-console.log(__dirname)
+// serve static resources
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/simply-sanskrit', express.static(path.join(__dirname, 'public')));
 
 
+// templates
 app.get('/simply-sanskrit', (req, res) => {
     res.render('pages/simply-sanskrit');
 });
@@ -21,10 +21,13 @@ app.get('/', (req, res) => {
     res.render('pages/index');
 });
 
-// Proxy for simplySanskrit words
+
+// proxy for simplySanskrit words
 app.get('/word/*', (req, res) => {
     let word = req.path.substring(req.path.lastIndexOf('/') + 1);
+    console.log(word)
     request('https://sanskritdictionary.org/' + word, (error, response, body) => {
+        console.log(response.statusCode, body);
         if (200 !== response.statusCode) {
             console.error('simplySanskrit proxy error:', error);
             return;
