@@ -14,6 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // templates
 app.get('/simply-sanskrit', (req, res) => {
+    app.locals.baseUrl = req.protocol + '://' + req.get('host');
     res.render('pages/simply-sanskrit');
 });
 app.get('/', (req, res) => {
