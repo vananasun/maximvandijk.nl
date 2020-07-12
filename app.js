@@ -23,9 +23,8 @@ app.get('/', (req, res) => {
 
 
 // proxy for simplySanskrit words
-app.get('/word/*', (req, res) => {
-    let word = req.path.substring(req.path.lastIndexOf('/') + 1);
-    console.log(word)
+app.get('/word/:word', (req, res) => {
+    let word = req.params.word;
     request('https://sanskritdictionary.org/' + word, (error, response, body) => {
         console.log(response.statusCode, body);
         if (200 !== response.statusCode) {
