@@ -10,7 +10,6 @@ app.set('views', path.join(__dirname, '/src/views'));
 
 // serve static resources
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/simply-sanskrit', express.static(path.join(__dirname, 'public')));
 
 
 // templates
@@ -26,7 +25,6 @@ app.get('/', (req, res) => {
 app.get('/word/:word', (req, res) => {
     let word = req.params.word;
     request('https://sanskritdictionary.org/' + word, (error, response, body) => {
-        console.log(response.statusCode, body);
         if (200 !== response.statusCode) {
             console.error('simplySanskrit proxy error:', error);
             return;
