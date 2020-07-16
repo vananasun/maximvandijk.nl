@@ -1,9 +1,7 @@
 M   Make responsive
-S   Add metadata
 S   Regengeluiden + drone <3
 C   JPEG video fallback / lazy load
 C   Deepdream video
-C   Non-selectable language buttons also not draggable
 
 
 

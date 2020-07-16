@@ -1,5 +1,6 @@
 @import "common/base";
 
+
 .section#section-welcome {
     backdrop-filter: none;
     background: none;
@@ -21,7 +22,7 @@
             @media only screen and (max-width: $bp-phone-max) {
                 font-size: 23vw;
                 &:hover {
-                    font-size: 7.5rem;
+                    font-size: 26vw;
                 }
             }
         }
@@ -62,4 +63,31 @@
             }
         }
     }
+}
+
+
+
+
+
+//
+// fit contents on screen
+//
+@media only screen and (max-width: $bp-phone-max) {
+
+    .section-wrapper:not(#section-wrapper-welcome) {
+        display: block;
+        top: 4.6rem;
+        position: absolute;
+        .section {
+            align-items: start;
+            font-size: 1.5rem;
+            backdrop-filter: blur(0.23rem);
+
+            .inner {
+                padding: .8rem;
+            }
+        }
+
+    }
+
 }

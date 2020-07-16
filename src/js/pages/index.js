@@ -34,5 +34,8 @@ navbtns.forEach(n => {
         // activate corresponding section
         document.getElementById('section-' + event.target.parentElement.id).classList.add('active');
 
+        // give section wrapper an indication of currently active section
+        document.querySelector('.section-wrapper').id = 'section-wrapper-' + event.target.parentElement.id;
+
     })
 });

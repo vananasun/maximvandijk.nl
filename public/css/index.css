@@ -231,7 +231,7 @@ a.link {
         .section#section-welcome .text-title span {
           font-size: 23vw; }
           .section#section-welcome .text-title span:hover {
-            font-size: 7.5rem; } }
+            font-size: 26vw; } }
 
 .section#section-contact .inner table tr {
   font-size: 3rem; }
@@ -244,6 +244,18 @@ a.link {
 @media only screen and (max-width: 47.99938rem) {
   .section#section-projects .inner table tr td:nth-child(2) {
     display: none; } }
+
+@media only screen and (max-width: 47.99938rem) {
+  .section-wrapper:not(#section-wrapper-welcome) {
+    display: block;
+    top: 4.6rem;
+    position: absolute; }
+    .section-wrapper:not(#section-wrapper-welcome) .section {
+      align-items: start;
+      font-size: 1.5rem;
+      backdrop-filter: blur(0.23rem); }
+      .section-wrapper:not(#section-wrapper-welcome) .section .inner {
+        padding: .8rem; } }
 
 .text-title {
   -moz-user-select: none;
