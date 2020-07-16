@@ -13,29 +13,45 @@ Muziekje.gainNode = null;
  * Wait for a user interaction and then start the audio context.
  */
 Muziekje.StartOnInteraction = function() {
-    document.addEventListener('click', () => Muziekje.InitIfRequired() );
-    document.addEventListener('touchstart', () => Muziekje.InitIfRequired() );
-    document.addEventListener('keypress', () => Muziekje.InitIfRequired() );
-    document.addEventListener('mousewheel', () => Muziekje.InitIfRequired() );
+    document.addEventListener('touchstart', Muziekje.InitIfRequired);
+    document.addEventListener('touchmove' , Muziekje.InitIfRequired);
+    document.addEventListener('touchend'  , Muziekje.InitIfRequired);
+    document.addEventListener('keypress'  , Muziekje.InitIfRequired);
+    document.addEventListener('mousewheel', Muziekje.InitIfRequired);
+    document.addEventListener('mouseup'   , Muziekje.InitIfRequired);
+    document.addEventListener('mousemove' , Muziekje.InitIfRequired);
 }
+
+Muziekje.DiscardEventListeners = function() {
+    document.removeEventListener('touchstart', Muziekje.InitIfRequired);
+    document.removeEventListener('touchmove' , Muziekje.InitIfRequired);
+    document.removeEventListener('touchend'  , Muziekje.InitIfRequired);
+    document.removeEventListener('keypress'  , Muziekje.InitIfRequired);
+    document.removeEventListener('mousewheel', Muziekje.InitIfRequired);
+    document.removeEventListener('mouseup'   , Muziekje.InitIfRequired);
+    document.removeEventListener('mousemove' , Muziekje.InitIfRequired);
+}
+
+
 
 /**
  * Initialize the audio context.
  */
-Muziekje.InitIfRequired = function(volume = 0.06) {
+Muziekje.InitIfRequired = function() {
     if (Muziekje.loaded) return;
 
     // Create context
     let AudioContext = window.AudioContext || window.webkitAudioContext;
-    this.ctx = new AudioContext();
+    Muziekje.ctx = new AudioContext();
 
     // Setup nodes
-    Muziekje.targetVolume = volume;
+    Muziekje.targetVolume = 0.06;
     Muziekje.gainNode = Muziekje.ctx.createGain();
     Muziekje.gainNode.gain.value = 0.0;
     Muziekje.gainNode.connect(Muziekje.ctx.destination);
 
     Muziekje.loaded = true;
+    Muziekje.DiscardEventListeners();
 }
 
 /**

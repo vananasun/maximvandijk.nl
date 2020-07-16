@@ -20,4 +20,4 @@ document.getElementById('scroll-btn').addEventListener('click', () => {
 
 // trigger plugin extensionless mode
 SIMPLYSANSKRIT_NOPLUGIN = true;
-SIMPLYSANSKRIT_PATH = 'js/simplySanskrit';
+SIMPLYSANSKRIT_PATH = document.location.protocol + '//' + document.location.host + '/js/simplySanskrit';
