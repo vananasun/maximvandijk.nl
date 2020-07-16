@@ -17,7 +17,6 @@ Muziekje.StartOnInteraction = function() {
     document.addEventListener('touchmove' , Muziekje.InitIfRequired);
     document.addEventListener('touchend'  , Muziekje.InitIfRequired);
     document.addEventListener('keypress'  , Muziekje.InitIfRequired);
-    document.addEventListener('mousewheel', Muziekje.InitIfRequired);
     document.addEventListener('mouseup'   , Muziekje.InitIfRequired);
 }
 
@@ -26,7 +25,6 @@ Muziekje.DiscardEventListeners = function() {
     document.removeEventListener('touchmove' , Muziekje.InitIfRequired);
     document.removeEventListener('touchend'  , Muziekje.InitIfRequired);
     document.removeEventListener('keypress'  , Muziekje.InitIfRequired);
-    document.removeEventListener('mousewheel', Muziekje.InitIfRequired);
     document.removeEventListener('mouseup'   , Muziekje.InitIfRequired);
 }
 
