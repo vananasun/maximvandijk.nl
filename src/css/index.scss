@@ -80,6 +80,7 @@ a.link {
         width: 61.8vw;
         @media only screen and (max-width: $bp-phone-max) {
             width: 100vw;
+            font-size: 1.8rem;
         }
     }
 }

@@ -5,6 +5,13 @@ html, body {
   margin: 0;
   width: 100%; }
 
+html {
+  font-size: 100%; }
+
+html, body {
+  margin: 0;
+  width: 100%; }
+
 body:not(.en) .en {
   display: none; }
 
@@ -38,6 +45,13 @@ body:not(.hi) .hi {
       .locale-picker div img:active {
         cursor: grab;
         width: 5.3rem; }
+      @media only screen and (max-width: 47.99938rem) {
+        .locale-picker div img {
+          width: 3rem; }
+          .locale-picker div img:hover {
+            width: 3.8rem; }
+          .locale-picker div img:active {
+            width: 3.3rem; } }
 
 @font-face {
   font-family: 'Samarkan';

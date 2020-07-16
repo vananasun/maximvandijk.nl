@@ -1,0 +1,228 @@
+
+
+/*******************************************************************************
+ *
+ * Global
+ *
+ ******************************************************************************/
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #197ea0;
+    text-align: center;
+
+    /* No scrolling, no selections */
+    overflow: hidden;
+    user-select: none;
+    -moz-user-select: none;
+}
+
+.iczhihal { display: inline-block; }
+
+
+
+/*******************************************************************************
+ *
+ * Keyboard
+ *
+ ******************************************************************************/
+.keyboard {
+    display: inline-block;
+    border: 3px solid #19323c;
+    background-color: #19323c;
+}
+.keyboard__octave {
+    margin: auto;
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+
+.key {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    top: 0;
+
+    width: 40px;
+    height: 160px;
+    transition: background-color 50ms;
+}
+.key:not(:active):not(:hover) { transition: background-color 250ms; }
+.key span {
+    vertical-align: sub;
+    line-height: 3px;
+    opacity: 0;
+    transition: opacity 200ms;
+}
+.key:hover, .key.held { background-color: #f2545b; }
+.key:active { background-color: #a93f55; }
+.key:active span, .key.held span, .key:hover span {
+    opacity: 1.0;
+}
+.key-white {
+    color: #19323c;
+    background-color: #f2ffea;
+}
+.key-black {
+    color: #f2ffea;
+    background-color: #19323c;
+    position: absolute;
+    height: 90px;
+    width: 20px;
+    word-wrap: break-word;
+}
+
+
+
+/*******************************************************************************
+ *
+ * Signal preview
+ *
+ ******************************************************************************/
+.controls-wrapper {
+    text-align: left;
+    margin-bottom: 15px;
+}
+#audioBuffer {
+    width: 64px;
+    height: 64px;
+    border: 3px solid #19323c;
+}
+
+
+
+/*******************************************************************************
+ *
+ * Param sliders
+ *
+ ******************************************************************************/
+input[type=range] {
+    background: none;
+    border: 3px solid #19323c;
+    margin: 0;
+    height: 18px;
+    outline: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+input[type=range]:hover { background-color}
+input[type=range]::-moz-focus-outer { border: 0; }
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+}
+input[type=range]::-moz-range-thumb, input[type=range]::-webkit-slider-thumb {
+    background-color: #19323c;
+    border-radius: 0;
+    border: 2px solid #197ea0;
+    width: 14px;
+    height: 14px;
+    transition: background-color 68ms;
+}
+
+input[type=range]::-moz-range-thumb:hover {
+    background-color: #f2545b;
+}
+input[type=range]:active::-moz-range-thumb,
+input[type=range]:active::-webkit-slider-thumb {
+    background-color: #a93f55;
+}
+
+
+/*
+ *
+ * Synth param
+ *
+ */
+.AudioCanvas__row:before, .AudioCanvas__row:after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+.AudioCanvas__row {
+    margin-left:-15px;
+    margin-right:-15px;
+}
+
+.AudioCanvas__col {
+    position: relative;
+    /*width: 100%;*/
+    padding-right: 15px;
+    padding-left: 15px;
+
+    /*max-width: 64px;!*25%;*!*/
+    float: left;
+}
+
+.AudioCanvas__param {
+    float: left;
+    display: inline-block;
+}
+
+
+/* Overrides */
+.hide { display: none; }
+
+
+
+
+/*******************************************************************************
+ *
+ * Knobs
+ *
+ ******************************************************************************/
+.AudioCanvas__Knob {
+    display: inline-block;
+    position:relative;
+    width:38px;
+    height:38px;
+    overflow:hidden;
+    margin: 3px;
+    /*-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);*/
+    /*-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);*/
+    /*box-shadow: 0px 1px 4px rgba(0,0,0,.3);*/
+}
+
+.ui-knob {
+    position: relative;
+    display:  inline-block;
+    overflow: visible;
+    width:  32px;
+    height: 32px;
+    padding: 0px;
+
+    border: 3px solid #19323c;
+    border-radius: 50px;
+    background-color: #f2ffea;
+
+    /* center the div */
+    top:50%;
+    left:50%;
+
+    transition: background-color 70ms;
+}
+.ui-knob:hover {
+    background-color: #f2545b;
+}
+.ui-knob:active {
+    background-color: #a93f55;
+}
+
+.ui-indicator {
+    position: absolute;
+    display: block;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    border-radius: 3px;
+    background: #19323c;
+    -webkit-backface-visibility: hidden;
+    pointer-events: none; /* Allow hovering through */
+
+    width: 14px;
+    height: 5px;
+}

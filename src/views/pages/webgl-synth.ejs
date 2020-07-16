@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.00, maximum-scale=2.00, minimum-scale=1.00">
+    <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+
+    <div class="iczhihal">
+
+        <p>
+            I hereby summon the power of WebGL!
+        </p>
+
+        <a style="font-size:24px" href="#" id="starter">Klik hier om de synth te starten</a>
+
+        <div class="controls-wrapper">
+            <div class="AudioCanvas__row">
+                <div class="AudioCanvas__col">
+                    <canvas id="audioBuffer" width="32" height="32"></canvas>
+                </div>
+                <div class="AudioCanvas__col">
+                    <div class="AudioCanvas__param">
+                        <input id="vcoAttack"
+                               name="rotate"
+                               type="range"
+                               value="0.0111267605633803"
+                               min="0" max="3" step="any"
+                               data-angle-start="-405"
+                               data-angle-end="-135"
+                               data-indicator-auto-position="true"
+                               data-indicator-auto-rotate="true"
+                               data-indicator-radius="13"
+                               data-gesture-spin-enabled="true"
+                               data-gesture-slidex-enabled="false"
+                               data-gesture-slidey-enabled="false"
+                        />
+                    </div>
+                    <div class="AudioCanvas__param">
+                        <input id="vcoDecay"
+                               name="rotate"
+                               type="range"
+                               value="0.0464084507042254"
+                               min="0" max="3" step="any"
+                               data-angle-start="-135"
+                               data-angle-end="-405"
+                               data-indicator-auto-position="true"
+                               data-indicator-auto-rotate="true"
+                               data-indicator-radius="13"
+                        />
+                    </div>
+                    <div class="AudioCanvas__param" style="display:none !important;">
+                        <input id="vcoSustain"
+                               name="rotate"
+                               type="range"
+                               value="0.0075352112676056"
+                               min="0" max="3" step="any"
+                               data-angle-start="-135"
+                               data-angle-end="-405"
+                               data-indicator-auto-position="true"
+                               data-indicator-auto-rotate="true"
+                               data-indicator-radius="13"
+                        />
+                    </div>
+                    <div class="AudioCanvas__param">
+                        <input id="vcoRelease"
+                               name="rotate"
+                               type="range"
+                               value="2.69366197183099"
+                               min="0" max="3" step="any"
+                               data-angle-start="-135"
+                               data-angle-end="-405"
+                               data-indicator-auto-position="true"
+                               data-indicator-auto-rotate="true"
+                               data-indicator-radius="13"
+                        />
+                    </div>
+                </div>
+<!--                <div class="AudioCanvas__row">-->
+
+<!--                    <div class="AudioCanvas__param">-->
+<!--                        <input id="vcoCutoff"-->
+<!--                               name="rotate"-->
+<!--                               type="range"-->
+<!--                               value="70"-->
+<!--                               min="0" max="200" step="any"-->
+<!--                               data-angle-start="-135"-->
+<!--                               data-angle-end="-405"-->
+<!--                               data-indicator-auto-position="true"-->
+<!--                               data-indicator-auto-rotate="true"-->
+<!--                               data-indicator-radius="13"-->
+<!--                        />-->
+<!--                    </div>-->
+<!--                </div>-->
+
+            </div>
+
+
+<!--            <div class="AudioCanvas__row">-->
+<!--                <div class="AudioCanvas__param">-->
+<!--                    <input type="range" min="0" max="3" value="0.0264084507042254" step="any" id="vcoDecay">-->
+<!--                </div>-->
+<!--                <div class="AudioCanvas__param">-->
+<!--                    <input type="range" min="0" max="3" value="0.0475352112676056" step="any" id="vcoSustain">-->
+<!--                </div>-->
+<!--                <div class="AudioCanvas__param">-->
+<!--                    <input type="range" min="0" max="3" value="2.69366197183099" step="any" id="vcoRelease">-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+
+        <div class="keyboard">
+            <div class="keyboard__octave">
+                <div class="key key-white"><span>C</span></div>
+                <div class="key key-black" style="left:32px"><span>C#</span></div>
+                <div class="key key-white"><span>D</span></div>
+                <div class="key key-black" style="left:78px"><span>D#</span></div>
+                <div class="key key-white"><span>E</span></div>
+                <div class="key key-white"><span>F</span></div>
+                <div class="key key-black" style="left:168px"><span>F#</span></div>
+                <div class="key key-white"><span>G</span></div>
+                <div class="key key-black" style="left:212px"><span>G#</span></div>
+                <div class="key key-white"><span>A</span></div>
+                <div class="key key-black" style="left:257px"><span>A#</span></div>
+                <div class="key key-white"><span>B</span></div>
+            </div>
+            <div class="keyboard__octave">
+                <div class="key key-white"><span>C</span></div>
+                <div class="key key-black" style="left:32px"><span>C#</span></div>
+                <div class="key key-white"><span>D</span></div>
+                <div class="key key-black" style="left:78px"><span>D#</span></div>
+                <div class="key key-white"><span>E</span></div>
+                <div class="key key-white"><span>F</span></div>
+                <div class="key key-black" style="left:168px"><span>F#</span></div>
+                <div class="key key-white"><span>G</span></div>
+                <div class="key key-black" style="left:212px"><span>G#</span></div>
+                <div class="key key-white"><span>A</span></div>
+                <div class="key key-black" style="left:257px"><span>A#</span></div>
+                <div class="key key-white"><span>B</span></div>
+            </div>
+            <div class="keyboard__octave">
+                <div class="key key-white"><span>C</span></div>
+                <div class="key key-black" style="left:32px"><span>C#</span></div>
+                <div class="key key-white"><span>D</span></div>
+            </div>
+        </div>
+    </div>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script src="assets/Knobs.js"></script>
+    <script src="app.min.js"></script>
+</body>
+</html>

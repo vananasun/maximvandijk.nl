@@ -3,6 +3,8 @@
 .section#section-welcome {
     backdrop-filter: none;
     background: none;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
 
     width: unset;
     margin: auto;
@@ -17,7 +19,7 @@
                 font-size: 12rem;
             }
             @media only screen and (max-width: $bp-phone-max) {
-                font-size: 5.5rem;
+                font-size: 23vw;
                 &:hover {
                     font-size: 7.5rem;
                 }
@@ -34,6 +36,29 @@
         table {
             tr {
                 font-size: 3rem;
+                // hide cell names when they do not fit on screen
+                @media only screen and (max-width: $bp-phone-max) {
+                    font-size: 2.5rem;
+                    td:first-child {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.section#section-projects {
+    .inner {
+        table {
+            tr {
+                // hide project description when it does not fit on screen
+                @media only screen and (max-width: $bp-phone-max) {
+                    td:nth-child(2) {
+                        display: none;
+                    }
+                }
             }
         }
     }

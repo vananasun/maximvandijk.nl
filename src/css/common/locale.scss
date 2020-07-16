@@ -1,3 +1,4 @@
+@import "common/standard";
 @import "common/mixin";
 
 body:not(.en) .en { display: none; }
@@ -30,6 +31,14 @@ body:not(.hi) .hi { display: none; }
                 cursor: grab;
                 width: 5.3rem;
             }
+
+
+            @media only screen and (max-width: $bp-phone-max) {
+                width: 3rem;
+                &:hover { width: 3.8rem; }
+                &:active { width: 3.3rem; }
+            }
+
         }
     }
 

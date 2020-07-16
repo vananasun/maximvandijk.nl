@@ -20,6 +20,13 @@ td {
 a.link {
   transition: background-color 150ms; }
 
+html {
+  font-size: 100%; }
+
+html, body {
+  margin: 0;
+  width: 100%; }
+
 body:not(.en) .en {
   display: none; }
 
@@ -53,6 +60,13 @@ body:not(.hi) .hi {
       .locale-picker div img:active {
         cursor: grab;
         width: 5.3rem; }
+      @media only screen and (max-width: 47.99938rem) {
+        .locale-picker div img {
+          width: 3rem; }
+          .locale-picker div img:hover {
+            width: 3.8rem; }
+          .locale-picker div img:active {
+            width: 3.3rem; } }
 
 video {
   z-index: -10;
@@ -85,19 +99,31 @@ td {
 a.link {
   transition: background-color 150ms; }
 
+html {
+  font-size: 100%; }
+
+html, body {
+  margin: 0;
+  width: 100%; }
+
 .hoofd {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  margin: 0 auto;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none; }
   .hoofd img {
-    width: 10vw;
+    width: 62vw;
     height: auto;
     margin: auto; }
+  @media only screen and (min-width: 48rem) {
+    .hoofd {
+      margin: auto; }
+      .hoofd img {
+        width: 10vw; } }
 
 html {
   font-size: 100%; }
@@ -129,8 +155,9 @@ ul.navigator {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
   padding: 0.75rem 0;
-  height: 7.75rem;
+  min-height: 7.75rem;
   backdrop-filter: blur(0.28rem);
   background-color: rgba(145, 166, 104, 0.15); }
   ul.navigator li {
@@ -186,6 +213,8 @@ a.link {
 .section#section-welcome {
   backdrop-filter: none;
   background: none;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
   width: unset;
   margin: auto; }
   .section#section-welcome > span {
@@ -200,12 +229,21 @@ a.link {
         font-size: 12rem; }
       @media only screen and (max-width: 47.99938rem) {
         .section#section-welcome .text-title span {
-          font-size: 5.5rem; }
+          font-size: 23vw; }
           .section#section-welcome .text-title span:hover {
             font-size: 7.5rem; } }
 
 .section#section-contact .inner table tr {
   font-size: 3rem; }
+  @media only screen and (max-width: 47.99938rem) {
+    .section#section-contact .inner table tr {
+      font-size: 2.5rem; }
+      .section#section-contact .inner table tr td:first-child {
+        display: none; } }
+
+@media only screen and (max-width: 47.99938rem) {
+  .section#section-projects .inner table tr td:nth-child(2) {
+    display: none; } }
 
 .text-title {
   -moz-user-select: none;
@@ -266,4 +304,5 @@ a.link {
           text-align: right; }
     @media only screen and (max-width: 47.99938rem) {
       .section-wrapper .section {
-        width: 100vw; } }
+        width: 100vw;
+        font-size: 1.8rem; } }

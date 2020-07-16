@@ -1,15 +1,24 @@
 @import "common/base";
+@import "common/standard";
 
 .hoofd {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
+    margin: 0 auto;
+
     @include noselect();
     img {
-        width: 10vw;
+        width: 62vw;
         height: auto;
         margin: auto;
+    }
+
+    @media only screen and (min-width: $bp-big-min) {
+        margin: auto;
+        img {
+            width: 10vw;
+        }
     }
 
 }

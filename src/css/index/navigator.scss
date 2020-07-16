@@ -17,8 +17,9 @@ ul.navigator {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
     padding: 0.75rem 0;
-    height: 7.75rem;
+    min-height: 7.75rem;
     backdrop-filter: blur(0.28rem);
     background-color: transparentize($col-1, 1 - $opacity-low);
 
