@@ -19,7 +19,6 @@ Muziekje.StartOnInteraction = function() {
     document.addEventListener('keypress'  , Muziekje.InitIfRequired);
     document.addEventListener('mousewheel', Muziekje.InitIfRequired);
     document.addEventListener('mouseup'   , Muziekje.InitIfRequired);
-    document.addEventListener('mousemove' , Muziekje.InitIfRequired);
 }
 
 Muziekje.DiscardEventListeners = function() {
@@ -29,7 +28,6 @@ Muziekje.DiscardEventListeners = function() {
     document.removeEventListener('keypress'  , Muziekje.InitIfRequired);
     document.removeEventListener('mousewheel', Muziekje.InitIfRequired);
     document.removeEventListener('mouseup'   , Muziekje.InitIfRequired);
-    document.removeEventListener('mousemove' , Muziekje.InitIfRequired);
 }
 
 
