@@ -17,7 +17,7 @@ sass.compiler = require('node-sass');
  **/
 const paths = {
     js: {
-        entries: ["src/js/pages/simply-sanskrit.js", "src/js/pages/index.js"],
+        entries: ["src/js/pages/simply-sanskrit.js", "src/js/pages/index.js", 'src/js/webgl-synth/webgl-synth.js'],
         watch: ["src/js/**/*.js"],
         dest: "public/js",
         includeDirs: [ './src/js/' ]

@@ -109,7 +109,7 @@ input[type=range] {
     -webkit-appearance: none;
     cursor: pointer;
 }
-input[type=range]:hover { background-color}
+// input[type=range]:hover { background-color: 0; }
 input[type=range]::-moz-focus-outer { border: 0; }
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;

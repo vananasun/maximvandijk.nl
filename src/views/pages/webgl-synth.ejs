@@ -3,17 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.00, maximum-scale=2.00, minimum-scale=1.00">
-    <link rel="stylesheet" href="assets/app.css">
+    <link rel="stylesheet" href="css/webgl-synth.css">
 </head>
 <body>
 
     <div class="iczhihal">
-
-        <p>
-            I hereby summon the power of WebGL!
-        </p>
-
-        <a style="font-size:24px" href="#" id="starter">Klik hier om de synth te starten</a>
 
         <div class="controls-wrapper">
             <div class="AudioCanvas__row">
@@ -77,37 +71,9 @@
                         />
                     </div>
                 </div>
-<!--                <div class="AudioCanvas__row">-->
-
-<!--                    <div class="AudioCanvas__param">-->
-<!--                        <input id="vcoCutoff"-->
-<!--                               name="rotate"-->
-<!--                               type="range"-->
-<!--                               value="70"-->
-<!--                               min="0" max="200" step="any"-->
-<!--                               data-angle-start="-135"-->
-<!--                               data-angle-end="-405"-->
-<!--                               data-indicator-auto-position="true"-->
-<!--                               data-indicator-auto-rotate="true"-->
-<!--                               data-indicator-radius="13"-->
-<!--                        />-->
-<!--                    </div>-->
-<!--                </div>-->
 
             </div>
 
-
-<!--            <div class="AudioCanvas__row">-->
-<!--                <div class="AudioCanvas__param">-->
-<!--                    <input type="range" min="0" max="3" value="0.0264084507042254" step="any" id="vcoDecay">-->
-<!--                </div>-->
-<!--                <div class="AudioCanvas__param">-->
-<!--                    <input type="range" min="0" max="3" value="0.0475352112676056" step="any" id="vcoSustain">-->
-<!--                </div>-->
-<!--                <div class="AudioCanvas__param">-->
-<!--                    <input type="range" min="0" max="3" value="2.69366197183099" step="any" id="vcoRelease">-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
 
         <div class="keyboard">
@@ -146,11 +112,11 @@
             </div>
         </div>
     </div>
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.js"
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"></script>
-    <script src="assets/Knobs.js"></script>
-    <script src="app.min.js"></script>
+    <script src="js/webgl-synth/Knobs.min.js"></script>
+    <script src="js/webgl-synth.min.js"></script>
 </body>
 </html>
